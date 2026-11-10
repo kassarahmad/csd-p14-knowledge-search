@@ -99,10 +99,11 @@ def main() -> int:
         stats["unchanged" if res.unchanged else "ingested"] += 1
         if res.status != "approved":
             t = time.perf_counter()
-            res = services.ingestion.approve(res.document_id, owner, APPROVAL_NOTE)
+            res = services.ingestion.approve(res.document_id, owner, APPROVAL_NOTE, refresh_snapshot=False)
             stats["approved"] += 1
             print(f"approved {res.document_id:<48} {res.passages:>5} passages  {time.perf_counter() - t:5.1f}s")
         stats["passages"] += res.passages
+    services.store.refresh_snapshot_id()
     print(f"done: {stats} in {time.perf_counter() - t0:.1f}s; Qdrant points: {services.index.count()}")
     return 0
 

@@ -1,0 +1,67 @@
+%% SQLite schema (indexing/store.py). Qdrant holds one point per indexed passage (id = uuid5(passage_id)).
+erDiagram
+    documents ||--o{ document_versions : has
+    documents ||--o{ passages : contains
+    document_versions ||--o{ passages : "chunked into"
+    passages ||--|| passages_fts : "rowid (BM25 index)"
+    documents ||--o{ approval_log : "approved in"
+    query_log ||--o| shadow_log : "request_id"
+    query_log ||--o{ feedback : "request_id"
+
+    documents {
+        text document_id PK "source_id:external_id"
+        text title
+        text office
+        text type
+        text access_level "public, internal, restricted"
+        text owner
+        text status "pending, approved"
+        text current_version
+        int synthetic
+        int llm_generated
+    }
+    document_versions {
+        text document_id PK
+        text document_version PK "SHA-256 of file bytes"
+        text status "pending, approved, superseded"
+        text chunker_version
+    }
+    passages {
+        text passage_id UK "p_ + hash(doc, version, chunker, offset)"
+        text section
+        int page
+        int char_start
+        int char_end
+        int indexed "1 = searchable"
+        int active "0 = superseded, still resolvable"
+    }
+    passages_fts {
+        text section
+        text text
+    }
+    approval_log {
+        text document_id
+        text approved_by "pseudonym"
+        text note
+    }
+    query_log {
+        text request_id PK
+        text principal_hash
+        text system
+        text versions_json
+        text results_json
+        int insufficient_evidence
+        real latency_ms
+    }
+    shadow_log {
+        text request_id PK
+        text shown_system
+        text shadow_system
+        real overlap_at_k
+    }
+    feedback {
+        int id PK
+        text request_id
+        text passage_id
+        text judgement "useful, not_useful, wrong_source"
+    }

@@ -30,3 +30,15 @@ Options:
 - (d) Elasticsearch/OpenSearch - strong BM25, but an extra heavy service (rejected by the architecture rule).
 Decision: (a) SQLite FTS5.
 Consequences: no new service; baseline B0 is a standard, well-documented BM25. Limitations to declare: `bm25()` returns lower-is-better scores (sign handled in code); k1/b parameters are fixed in FTS5; the built-in `porter` stemmer is English-only, so Italian text uses `unicode61` without stemming (relevant for ADR-003). Fusion (RRF) uses ranks, so the different score scales of FTS5 and Qdrant do not matter.
+
+## ADR-005 - Embedding model: intfloat/multilingual-e5-small - 2026-11-10
+Context: Italian corpus, ~10% English queries, 8 GB GPU -> small multilingual model. Two candidates, both 384-dimensional:
+intfloat/multilingual-e5-small (MIT licence, needs "query:"/"passage:" prefixes) and ibm-granite/granite-embedding-107m-multilingual (Apache-2.0).
+Method: `eval/build_dense_index.py` embeds the same 10,689 passages with each model (one Qdrant collection per model);
+`eval/compare_models.py` runs S1 (dense) and S2 (hybrid) on the TUNING split only (40 queries, 34 in scope); the
+held-out test split was frozen before this step. Rule fixed in advance: highest S2 nDCG@10, tie -> smaller dimension.
+Result (eval/results/model_comparison.json): S2 nDCG@10 0.7324 (e5-small) vs 0.6928 (Granite); S2 Recall@10 0.9167 vs 0.7794;
+S1 nDCG@10 0.6450 vs 0.6036.
+Decision: intfloat/multilingual-e5-small (EMBEDDING_MODEL default).
+Consequences: only 40 tuning queries - the difference is indicative, not statistically tested; Granite stays available
+(its collection can be rebuilt with one command) for future comparison.

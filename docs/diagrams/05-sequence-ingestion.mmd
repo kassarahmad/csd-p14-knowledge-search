@@ -1,0 +1,26 @@
+%% Ingestion with human approval (ingestion/service.py).
+sequenceDiagram
+    actor Owner as Office owner (officer/admin)
+    participant API as P14 API
+    participant Ing as IngestionService
+    participant P as parser + chunker
+    participant DB as SQLite
+    participant E as Embedder
+    participant Q as Qdrant
+
+    Owner->>API: POST /v1/documents (IngestDocument, X-API-Key)
+    API->>Ing: ingest(doc, principal)
+    Ing->>Ing: can_manage(office)? otherwise 403
+    Ing->>P: parse(bytes, media_type) with type/size/macro/XXE checks
+    P-->>Ing: blocks (page, section) then passages with ids
+    Ing->>DB: documents (status=pending), document_versions, passages (indexed=0)
+    API-->>Owner: 202 {document_id, document_version, status: pending}
+    Note over DB,Q: Not searchable yet: nothing written to FTS5 or Qdrant
+    Owner->>API: POST /v1/documents/{id}/approve {note}
+    API->>Ing: approve(id, principal, note)
+    Ing->>E: embed_passages(title + section + text)
+    Ing->>Q: upsert points (payload: access_level, office, type, source_id)
+    Ing->>Q: delete points of the superseded version
+    Ing->>DB: BEGIN, FTS5 insert, indexed=1, old version superseded, approval_log, COMMIT
+    Ing->>DB: refresh index_snapshot_id
+    API-->>Owner: 200 {status: approved, passages}

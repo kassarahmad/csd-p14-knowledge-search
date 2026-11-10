@@ -87,7 +87,9 @@ class IngestionService:
         log.info("ingested", extra={"document_id": did, "document_version": ver[:12], "passages": len(chunks), "by": principal.pseudonym})
         return IngestResult(document_id=did, document_version=ver, status="pending", passages=len(chunks))
 
-    def approve(self, did: str, principal: Principal, note: str | None = None) -> IngestResult:
+    def approve(self, did: str, principal: Principal, note: str | None = None, refresh_snapshot: bool = True) -> IngestResult:
+        """Bulk loaders pass refresh_snapshot=False and call store.refresh_snapshot_id() once at the end
+        (the snapshot hash covers all indexed passages, so refreshing per document would be quadratic)."""
         rows = self.store.query("SELECT * FROM documents WHERE document_id = ?", (did,))
         if not rows:
             raise NotFound(did)
@@ -129,6 +131,7 @@ class IngestionService:
                 "INSERT INTO approval_log(document_id, document_version, approved_by, note, ts) VALUES (?,?,?,?,?)",
                 (did, ver, principal.pseudonym, note, now_iso()),
             )
-        self.store.refresh_snapshot_id()
+        if refresh_snapshot:
+            self.store.refresh_snapshot_id()
         log.info("approved", extra={"document_id": did, "passages": len(passages), "by": principal.pseudonym, "note": note})
         return IngestResult(document_id=did, document_version=ver, status="approved", passages=len(passages))

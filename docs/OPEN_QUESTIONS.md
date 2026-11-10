@@ -12,3 +12,6 @@
 | Q8 | Are paid LLM APIs allowed/expected, or is a fully local solution preferred? | Requires professor confirmation |
 | Q9 | Grading criteria and weights | Requires professor confirmation |
 | Q10 | P25 sheet says "P14 Search: feeds the knowledge base" while the P14 sheet says P14 "provides retrieval" to P25. Is the P14-P25 connection bidirectional (P25 cards indexed by P14, P14 retrieval used by P25)? | Requires professor confirmation |
+| Q11 | Gazzetta Ufficiale issues used as PDFs contain unrelated acts naming private individuals (published officially). Is keeping them in a local research corpus acceptable, or should non-target acts be removed? | Requires professor confirmation |
+| Q12 | Are LLM-drafted queries and relevance judgments acceptable for the evaluation if reviewed by the student, or is an independent human annotation required? | Requires professor confirmation |
+| Q13 | The synthetic Ente Demo documents were written with an LLM: is this acceptable as the "selected case study", given Q7? | Requires professor confirmation |
