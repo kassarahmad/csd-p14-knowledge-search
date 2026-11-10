@@ -1,0 +1,26 @@
+$ nvidia-smi --query-gpu=name,driver_version,memory.total --format=csv
+name, driver_version, memory.total [MiB]
+NVIDIA GeForce RTX 5070 Laptop GPU, 592.19, 8151 MiB
+
+$ docker ps --format {{.Names}}  {{.Image}}  {{.Status}}  {{.Ports}}
+p14-qdrant  qdrant/qdrant:v1.19.2  Up 40 minutes  0.0.0.0:6333-6334->6333-6334/tcp, [::]:6333-6334->6333-6334/tcp
+
+$ C:\Users\kassa\Projects\csd-p14-knowledge-search\.venv\Scripts\python.exe --version
+Python 3.11.18
+
+$ git log --oneline -15
+afade77 chore: final verification - clean reproducible runs, deterministic DOCX, checklist (Phase 10)
+34c2df6 docs: report, diagrams, reproducibility, defence notes, ADR-006..009 (Phase 9)
+fdb80fb feat(ui): Streamlit demo with principal selector, citations, evidence, feedback (Phase 8)
+2239e12 feat(integration): real contract examples from the running system, mock consumers P24/P12 (Phase 7)
+6fee311 eval: model choice (ADR-005), threshold calibration, full evaluation, error analysis (Phase 6)
+b5748af eval: freeze D1 question set before tuning (110 LLM-drafted queries, graded qrels)
+be47039 feat(mvp-12,13): contract conformance tests, frozen OpenAPI, corpus ingestion
+bd56eb7 feat(mvp-5..11): indexing, ACL-filtered retrieval, RRF, citations, API, logs, shadow mode
+c11ed01 feat(mvp-3,4): safe parser (PDF/DOCX/HTML/TXT) and chunker with persistent ids
+346e9e8 fix: export_contracts writes LF line endings
+75f0350 chore: untrack egg-info, fix .gitignore line merge
+df76990 feat(mvp-1,2): domain models, frozen JSON Schemas, SQLite schema with FTS5
+9a249cc feat: project skeleton - FastAPI app, settings, JSON logging, Qdrant compose (Phase 4)
+941979e data: corpus decision ADR-003 - D1a real acts, D1b synthetic Ente Demo, D2 SciFact
+cc395a4 docs: verified course requirements and reviewed design drafts (kickoff steps 1-2)

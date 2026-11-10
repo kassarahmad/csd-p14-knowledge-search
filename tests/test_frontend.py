@@ -13,4 +13,5 @@ def test_demo_ui_renders_and_reports_unreachable_api(monkeypatch):
     at.run()
     assert not at.exception
     assert any("not reachable" in e.value for e in at.sidebar.error)
+    assert not at.sidebar.code and not at.sidebar.help  # no stray "magic" output
     assert "employee" in at.sidebar.selectbox[0].options

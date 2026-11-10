@@ -32,7 +32,10 @@ with st.sidebar:
     top_k = st.slider("Passages", 3, 20, 8)
     try:
         health = requests.get(f"{api_url}/v1/health", timeout=3).json()
-        st.success(f"API {health['status']}") if health["status"] == "ok" else st.warning(f"API {health['status']}: {health['components']}")
+        if health["status"] == "ok":
+            st.success(f"API {health['status']}")
+        else:
+            st.warning(f"API {health['status']}: {health['components']}")
     except requests.RequestException:
         st.error("API not reachable")
 
