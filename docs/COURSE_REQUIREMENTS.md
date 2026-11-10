@@ -1,7 +1,7 @@
 # Course requirements (verified)
 
 Source: "AI PUZZLE - Framework of Autonomous Artificial Intelligence Projects for Public and Private Organizations",
-Consolidated version 5.0 - Complex Systems Design course (file in docs/course/).
+Consolidated version 5.0 - Complex Systems Design course (distributed by the course; not redistributed in this repository).
 Only facts stated in that document are listed here. Everything else is in OPEN_QUESTIONS.md.
 Section names of the source are given in [brackets]; text in quotes is verbatim.
 Last verified against the PDF: 2026-11-10 (text extracted with pdftotext; the two figures are images and were not verified).

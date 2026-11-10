@@ -1,7 +1,7 @@
 """Principals (API consumers) and API-key authentication.
 
 Principal definitions live in config/principals.json (committed, no secrets). Each principal names the
-environment variable that holds its API key; keys live only in .env / the environment (CLAUDE.md rule).
+environment variable that holds its API key; keys live only in .env / the environment (project rule).
 No real identity provider: this is a declared limitation of the prototype.
 """
 

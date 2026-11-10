@@ -17,7 +17,7 @@ import sys
 from common import RESULTS, ROOT
 from render_results import blocks
 
-DOCS = ["docs/REPORT.md", "docs/EVALUATION.md", "docs/DATA.md", "docs/DECISIONS.md", "docs/DEFENSE_NOTES.md", "docs/REPRODUCIBILITY.md"]
+DOCS = ["docs/REPORT.md", "docs/EVALUATION.md", "docs/DATA.md", "docs/DECISIONS.md", "docs/REPRODUCIBILITY.md"]
 BLOCK_RE = re.compile(r"<!-- RESULTS:(\w+):START -->\n(.*?)\n<!-- RESULTS:\1:END -->", re.S)
 NUM_RE = re.compile(r"(?<![\w.\-/])(\d{1,3}(?:,\d{3})+(?:\.\d+)?|\d+\.\d+)(%?)(?![\w.])")
 # Not data: section numbers in headings, software versions.

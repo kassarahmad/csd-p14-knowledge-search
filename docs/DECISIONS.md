@@ -11,7 +11,7 @@ Rationale: reproducibility, zero cost, runs on the student laptop (RTX 5070 8 GB
 
 ## ADR-003 - Case-study corpus - DECIDED 2026-11-10
 Options considered: (A) documents of a real Italian public body; (B) open English technical documentation; (C) fully synthetic company corpus.
-Decision (student's choice, from MASTER_PROMPT Phase 3): fictional public organization "Ente Demo" =
+Decision (student's choice): fictional public organization "Ente Demo" =
 - D1a: 32 REAL Italian official acts (Normattiva HTML/TXT, Gazzetta Ufficiale PDF), public, art. 5 L. 633/1941;
 - D1b: 25 SYNTHETIC LLM-generated internal documents (PDF/DOCX/TXT) with public/internal/restricted access levels and offices;
 - D2: BEIR SciFact as sanity benchmark (CC BY 4.0 / ODC-By 1.0).

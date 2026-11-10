@@ -37,7 +37,7 @@ Document-level relevance (for the correct-source rate) = a document containing a
 - Snippets on Gazzetta Ufficiale PDFs refer to the text as originally published.
 
 ## 5. Review checklist for the student (before submission)
-Worksheet: `python eval/review_worksheet.py` writes `eval/review/review_worksheet.csv` (all 110 queries, ordered by review priority, with empty verdict columns). Step-by-step procedure in Italian: docs/GUIDA_STUDENTE.md section 3.
+Worksheet: `python eval/review_worksheet.py` writes `eval/review/review_worksheet.csv` (all 110 queries, ordered by review priority, with empty verdict columns).
 
 - [ ] Read every test query: is it natural, unambiguous, and correctly typed?
 - [ ] For each target, open the cited section (GET /v1/passages/{id} or the demo UI) and confirm the snippet really answers the query.
