@@ -15,3 +15,4 @@
 | Q11 | Gazzetta Ufficiale issues used as PDFs contain unrelated acts naming private individuals (published officially). Is keeping them in a local research corpus acceptable, or should non-target acts be removed? | Requires professor confirmation |
 | Q12 | Are LLM-drafted queries and relevance judgments acceptable for the evaluation if reviewed by the student, or is an independent human annotation required? | Requires professor confirmation |
 | Q13 | The synthetic Ente Demo documents were written with an LLM: is this acceptable as the "selected case study", given Q7? | Requires professor confirmation |
+| Q14 | What is the course policy on AI assistants (code, documentation, synthetic data, relevance judgments)? How should their use be declared in the report? | Requires professor confirmation |

@@ -14,7 +14,7 @@ internal documents** (labelled as such everywhere). Details: docs/DATA.md.
 ## Stack
 Python 3.11 - FastAPI - Pydantic - SQLite FTS5 (BM25) - Qdrant 1.19.2 (Docker) - sentence-transformers
 (`intfloat/multilingual-e5-small`, ADR-005) - pypdfium2/pypdf, python-docx, BeautifulSoup - pytest - Streamlit.
-No paid services, no cloud: everything runs locally (tested on Windows 11, RTX 5070 Laptop 8 GB, 16 GB RAM).
+No paid services, no cloud: everything runs locally (tested on Windows 11, RTX 5070 Laptop GPU 8 GB, 31.1 GB RAM as measured by the evaluation script).
 
 ## Setup (Windows 11, from the repository root)
 ```powershell
@@ -64,7 +64,7 @@ Full sequence, commands and runtimes: docs/REPRODUCIBILITY.md. Results: docs/EVA
 | docs/ANNOTATION_PROTOCOL.md | How queries and relevance judgments were made (LLM-drafted) |
 | docs/EVALUATION.md | Methodology and results vs targets |
 | docs/SECURITY_OVERSIGHT.md | Security, traceability, human oversight, shadow mode |
-| docs/DECISIONS.md | Architectural decision log (ADR-001..005) |
+| docs/DECISIONS.md | Architectural decision log (ADR-001..009) |
 | docs/REPRODUCIBILITY.md | From clean clone to results |
 | docs/DEFENSE_NOTES.md | Notes for the oral defence (Italian) |
 | docs/DELIVERABLES_CHECKLIST.md | The 8 common deliverables -> where they are |

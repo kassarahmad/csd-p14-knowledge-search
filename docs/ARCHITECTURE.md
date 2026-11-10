@@ -39,7 +39,7 @@ flowchart LR
 Notes:
 - BM25 lives in SQLite FTS5 (ADR-004): no extra service, persistent, same database as metadata and ACL.
 - The ACL filter is built once from the principal and applied **inside** both retrievers (Qdrant payload filter, FTS5 WHERE clause), never as a post-filter, so unauthorised passages cannot influence counts or scores.
-- The shadow runner executes B0 and the candidate system on the same query, shows only B0 to the user and logs both (see EVALUATION.md).
+- The shadow runner executes the display system and the shadow system on the same query (`DISPLAY_SYSTEM`, `SHADOW_SYSTEM`; default S2 shown, B0 shadow; the validation protocol uses B0 shown, S2 shadow), shows only the display ranking to the user and logs both (see EVALUATION.md).
 - Stretch components (not implemented): related-documents endpoint, CloudEvents publisher, local LLM summary, MCP wrapper, reranker.
 - The "shadow runner" is not a separate process: SearchService ranks with the display and the shadow system from the same retriever runs, synchronously.
 
@@ -61,7 +61,7 @@ Notes:
 `request_id`, timestamp, pseudonymised principal, query, filters, version block (pipeline, chunker, embedding model, reranker, index snapshot), returned `passage_id`s with score and rank, `insufficient_evidence`, latency, linked feedback.
 Scores are exposed as `evidence`, not as "confidence": retrieval scores are not calibrated probabilities. Retention period and minimisation rules: see SECURITY_OVERSIGHT.md. Eval traffic is tagged with `X-Request-ID: eval-...`.
 
-## Diagrams to produce
+## Diagrams (all produced, Mermaid sources in docs/diagrams/)
 | Diagram | Priority | Why |
 |---|---|---|
 | System context | Essential | Shows P14 among users and other puzzle pieces |
