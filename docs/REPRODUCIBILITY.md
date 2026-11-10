@@ -47,11 +47,31 @@ After `calibrate_threshold`, copy `ie_min_dense` / `ie_min_bm25` from `eval/resu
 
 ## 3. Measured runtimes (last run of scripts/reproduce.py)
 <!-- RESULTS:REPRO:START -->
-Not run yet.
+Run started 2026-11-10T12:46:08 (clean=True), total 447.4 s, ok=True. Source: `eval/results/reproduce_latest.json`.
+
+| Step | Exit code | Seconds |
+|---|---|---|
+| fetch_corpus | 0 | 0.1 |
+| generate_d1b | 0 | 0.7 |
+| ingest_corpus | 0 | 46.9 |
+| corpus_stats | 0 | 0.6 |
+| build_qrels | 0 | 0.7 |
+| verify_test_freeze | 0 | 0.1 |
+| build_dense_index_granite | 0 | 20.4 |
+| compare_models | 0 | 15.5 |
+| calibrate_threshold | 0 | 10.7 |
+| pytest | 0 | 6.6 |
+| run_eval | 0 | 331.7 |
+| error_analysis | 0 | 11.8 |
+| render_results | 0 | 0.7 |
 <!-- RESULTS:REPRO:END -->
 
 ## 4. Determinism and expected differences
 - Passage ids, qrels and retrieval rankings are deterministic for the same files, models and chunker version.
+  Verified: two consecutive `reproduce.py --clean` runs gave the same `index_snapshot_id` and identical metrics,
+  randomization tests and D2 results (only latency differed). A first run had shown tiny S2 differences because the
+  synthetic DOCX files embedded the current time in their zip entries (new bytes -> new versions -> new ids -> different
+  tie-breaks in RRF); `generate_d1b.py` now writes fixed zip timestamps.
 - Normattiva serves the text **in force on the download date**: re-downloading later can change D1a (the SHA-256 in
   `fetch_record.json` shows it). Then `build_qrels.py` reports missing snippets instead of silently changing results.
 - Latency depends on the machine and its load; GPU kernels can introduce tiny floating-point differences.

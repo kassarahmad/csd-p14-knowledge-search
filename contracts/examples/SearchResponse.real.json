@@ -1,5 +1,5 @@
 {
-  "request_id": "c2f7b326adfa451ebd70ee390127f5bb",
+  "request_id": "57ff24e6eda14db1a293522fc54f8f29",
   "query": "Quanti giorni al mese posso lavorare da casa?",
   "system": "S2",
   "results": [
@@ -238,6 +238,6 @@
     "chunker_version": "chunker-1",
     "embedding_model": "intfloat/multilingual-e5-small",
     "reranker_model": null,
-    "index_snapshot_id": "idx-7a7b048cd9fb6a57"
+    "index_snapshot_id": "idx-d90ca31ee5aee092"
   }
 }

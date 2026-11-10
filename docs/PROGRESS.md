@@ -14,8 +14,12 @@ Last update: 2026-11-10
 - Phase 8: Streamlit demo with principal selector and feedback; UI test.
 - Phase 9: Mermaid diagrams, REPORT.md, REPRODUCIBILITY.md, DEFENSE_NOTES.md (Italian), ADR-006..009.
 
+- Phase 10: two clean end-to-end runs (scripts/reproduce.py --clean), all 13 steps exit 0, identical results;
+  eval/check_doc_numbers.py: 0 problems; docs/DELIVERABLES_CHECKLIST.md written; real examples regenerated
+  (scripts/make_examples.py).
+
 ## In progress
-- Phase 10: fresh end-to-end run (scripts/reproduce.py --clean), number check, deliverables checklist.
+- Nothing: MVP and evaluation complete. No stretch goal started.
 
 ## Blocked / waiting for the professor
 - Q1 assignment of P14; Q7/Q13 acceptability of public + synthetic corpus; Q11 personal data in GU issues;

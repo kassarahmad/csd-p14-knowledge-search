@@ -119,7 +119,7 @@
       "top_bm25": 15.637668229531156,
       "top3": [
         {
-          "passage_id": "p_4326133c8372f3913a14b61f9716f5fa",
+          "passage_id": "p_d58e71e1f1aa55af56987078f64e300a",
           "document_id": "d1b:informativa-privacy-utenti",
           "section": "Diritti dell'interessato",
           "page": null,
@@ -366,7 +366,7 @@
           "grade": 0
         },
         {
-          "passage_id": "p_f092f4e63579ed63f658ab6d118629ee",
+          "passage_id": "p_b1cd15cd62707928ebc5c3b4e45ecf52",
           "document_id": "d1b:procedura-infortuni",
           "section": "Segnalazione interna",
           "page": null,
@@ -635,7 +635,7 @@
       "top_bm25": 18.829909223089366,
       "top3": [
         {
-          "passage_id": "p_005511c47a63848ad1f50b41722bc29f",
+          "passage_id": "p_4d168477ba99ee2e8e37c56889a05aa2",
           "document_id": "d1b:procedura-data-breach",
           "section": "Che cos'è una violazione dei dati personali",
           "page": null,

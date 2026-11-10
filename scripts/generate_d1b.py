@@ -13,8 +13,10 @@ from __future__ import annotations
 
 import datetime as dt
 import hashlib
+import io
 import json
 import sys
+import zipfile
 from pathlib import Path
 
 import yaml
@@ -82,7 +84,16 @@ def render_docx(meta: dict, blocks: list[tuple[str, str]], target: Path) -> None
             doc.add_paragraph(text, style="List Bullet")
         else:
             doc.add_paragraph(text)
-    doc.save(target)
+    buf = io.BytesIO()
+    doc.save(buf)
+    # A .docx is a zip whose entries carry the current time: rewrite them with a fixed timestamp so that the same
+    # source always gives the same bytes (and therefore the same document_version and passage ids).
+    src = zipfile.ZipFile(buf)
+    with zipfile.ZipFile(target, "w", zipfile.ZIP_DEFLATED) as out:
+        for item in src.infolist():
+            info = zipfile.ZipInfo(item.filename, date_time=(1980, 1, 1, 0, 0, 0))
+            info.compress_type = zipfile.ZIP_DEFLATED
+            out.writestr(info, src.read(item.filename))
 
 
 def render_pdf(meta: dict, blocks: list[tuple[str, str]], target: Path) -> None:

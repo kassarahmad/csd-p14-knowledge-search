@@ -1,5 +1,5 @@
 {
-  "generated_at": "20261110-122030",
+  "generated_at": "20261110-125322",
   "test_split_sha256": "986469f15d0a82c3ca439cbd97737808fdad971434035e30744c23efd5891207",
   "calibration": {
     "ie_min_dense": 0.837327,
@@ -11,7 +11,7 @@
     "chunker_version": "chunker-1",
     "embedding_model": "intfloat/multilingual-e5-small",
     "reranker_model": null,
-    "index_snapshot_id": "idx-7a7b048cd9fb6a57"
+    "index_snapshot_id": "idx-d90ca31ee5aee092"
   },
   "hardware": {
     "os": "Windows-10-10.0.26200-SP0",
@@ -61,8 +61,8 @@
       "precision@1": 0.5167,
       "precision@5": 0.1933,
       "precision@10": 0.11,
-      "mrr@10": 0.6362,
-      "ndcg@10": 0.6044,
+      "mrr@10": 0.6359,
+      "ndcg@10": 0.6041,
       "correct_source@3": 0.7667,
       "n_in_scope": 60,
       "n_out_of_scope": 10,
@@ -250,8 +250,8 @@
         "precision@1": 0.2917,
         "precision@5": 0.15,
         "precision@10": 0.0875,
-        "mrr@10": 0.4272,
-        "ndcg@10": 0.4268,
+        "mrr@10": 0.4265,
+        "ndcg@10": 0.426,
         "correct_source@3": 0.5833,
         "n_in_scope": 24,
         "n_out_of_scope": 0,
@@ -346,8 +346,8 @@
         "precision@1": 0.5357,
         "precision@5": 0.1929,
         "precision@10": 0.1107,
-        "mrr@10": 0.637,
-        "ndcg@10": 0.6003,
+        "mrr@10": 0.6367,
+        "ndcg@10": 0.6,
         "correct_source@3": 0.75,
         "n_in_scope": 56,
         "n_out_of_scope": 8,
@@ -442,8 +442,8 @@
         "precision@1": 0.5833,
         "precision@5": 0.175,
         "precision@10": 0.0958,
-        "mrr@10": 0.7004,
-        "ndcg@10": 0.6738,
+        "mrr@10": 0.6997,
+        "ndcg@10": 0.6731,
         "correct_source@3": 0.8333,
         "n_in_scope": 24,
         "n_out_of_scope": 0,
@@ -455,10 +455,10 @@
   "randomization_tests": {
     "S2_vs_B0_ndcg@10": {
       "n": 60,
-      "mean_difference": 0.1519,
+      "mean_difference": 0.1516,
       "ci95": [
-        0.0897,
-        0.2191
+        0.0894,
+        0.2189
       ],
       "p_value": 0.0001,
       "iterations": 10000,
@@ -477,12 +477,12 @@
     },
     "S2_vs_S1_ndcg@10": {
       "n": 60,
-      "mean_difference": 0.0015,
+      "mean_difference": 0.0012,
       "ci95": [
-        -0.0506,
-        0.0546
+        -0.0512,
+        0.0544
       ],
-      "p_value": 0.9556,
+      "p_value": 0.9652,
       "iterations": 10000,
       "seed": 14
     },
@@ -530,33 +530,33 @@
   "latency_api": {
     "B0": {
       "n": 70,
-      "p50_ms": 10.7,
-      "p95_ms": 18.3,
-      "max_ms": 30.8
+      "p50_ms": 9.4,
+      "p95_ms": 15.5,
+      "max_ms": 17.7
     },
     "S1": {
       "n": 70,
-      "p50_ms": 30.7,
-      "p95_ms": 44.7,
-      "max_ms": 62.2
+      "p50_ms": 46.0,
+      "p95_ms": 91.1,
+      "max_ms": 97.9
     },
     "S2": {
       "n": 70,
-      "p50_ms": 32.9,
-      "p95_ms": 48.6,
-      "max_ms": 52.2
+      "p50_ms": 46.8,
+      "p95_ms": 77.0,
+      "max_ms": 89.5
     },
     "S2+shadow_B0": {
       "n": 70,
-      "p50_ms": 41.7,
-      "p95_ms": 156.2,
-      "max_ms": 181.7
+      "p50_ms": 43.6,
+      "p95_ms": 94.2,
+      "max_ms": 101.4
     }
   },
   "targets": {
     "T1_S2_ge_B0_ndcg10_and_recall10": {
       "S2": [
-        0.6044,
+        0.6041,
         0.7597
       ],
       "B0": [
@@ -574,7 +574,7 @@
       "met": true
     },
     "T4_latency_p95_lt_1500ms_no_reranker": {
-      "value_ms": 48.6,
+      "value_ms": 77.0,
       "met": true
     },
     "T4_latency_p95_lt_3000ms_with_reranker": {
@@ -590,6 +590,8 @@
   "d2_scifact": {
     "dataset": "BEIR SciFact test (claims CC BY 4.0, abstracts ODC-By 1.0)",
     "level": "document",
+    "n_documents": 5183,
+    "n_test_qrels_lines": 339,
     "embedding_model": "intfloat/multilingual-e5-small",
     "overall": {
       "B0": {
@@ -611,6 +613,6 @@
         "n_queries": 300
       }
     },
-    "seconds": 22.0
+    "seconds": 24.2
   }
 }

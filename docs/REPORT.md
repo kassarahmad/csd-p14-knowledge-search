@@ -91,7 +91,7 @@ anchored on verbatim snippets (ADR-008), B0/S1/S2 compared on the same index; th
 chosen on the tuning split only.
 
 <!-- RESULTS:SUMMARY:START -->
-Source: `eval/results/eval_20261110-122030.json` (copy: `eval_latest.json`), test split SHA-256 `986469f15d0a82c3...`.
+Source: `eval/results/eval_20261110-125322.json` (copy: `eval_latest.json`), test split SHA-256 `986469f15d0a82c3...`.
 
 |  | B0 BM25 | S1 dense | S2 hybrid |
 |---|---|---|---|
@@ -106,7 +106,7 @@ Source: `eval/results/eval_20261110-122030.json` (copy: `eval_latest.json`), tes
 | T1 S2 >= B0 on nDCG@10 and Recall@10 | S2 0.604 / 0.760 vs B0 0.453 / 0.557 | yes |
 | T2 correct-source rate >= 0.80 (S2) | 0.767 | **no** |
 | T3 abstention correctness >= 0.70 (S2) | 0.700 | yes |
-| T4 latency p95 < 1.5 s without reranker (S2) | 48.6 ms | yes |
+| T4 latency p95 < 1.5 s without reranker (S2) | 77.0 ms | yes |
 | T4 latency p95 < 3 s with reranker | not measured | n/a - reranker (S3) is a stretch goal, not implemented |
 | T5 ACL leakage = 0 | 0 leaks / 18576 passages checked (9 principals x 70 queries x 3 systems) | yes |
 <!-- RESULTS:SUMMARY:END -->

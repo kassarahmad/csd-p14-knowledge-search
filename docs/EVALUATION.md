@@ -30,7 +30,7 @@ B0 BM25 only (SQLite FTS5, ADR-004) - S1 dense only (multilingual-e5-small, ADR-
 <!-- RESULTS:MODELS:START -->
 | Model (tuning split, 40 queries) | S1 nDCG@10 | S2 nDCG@10 | S2 Recall@10 |
 |---|---|---|---|
-| intfloat/multilingual-e5-small | 0.645 | 0.732 | 0.917 |
+| intfloat/multilingual-e5-small | 0.645 | 0.733 | 0.917 |
 | ibm-granite/granite-embedding-107m-multilingual | 0.604 | 0.693 | 0.779 |
 <!-- RESULTS:MODELS:END -->
 
@@ -42,7 +42,7 @@ Limitation: the tuning split contains only 6 out-of-scope queries, so the thresh
 
 ## Results on the D1 test split
 <!-- RESULTS:MAIN:START -->
-Source: `eval/results/eval_20261110-122030.json` (copy: `eval_latest.json`), test split SHA-256 `986469f15d0a82c3...`.
+Source: `eval/results/eval_20261110-125322.json` (copy: `eval_latest.json`), test split SHA-256 `986469f15d0a82c3...`.
 
 | Metric (D1 test, 60 in-scope / 10 out-of-scope) | B0 BM25 | S1 dense | S2 hybrid |
 |---|---|---|---|
@@ -66,7 +66,7 @@ Source: `eval/results/eval_20261110-122030.json` (copy: `eval_latest.json`), tes
 | T1 S2 >= B0 on nDCG@10 and Recall@10 | S2 0.604 / 0.760 vs B0 0.453 / 0.557 | yes |
 | T2 correct-source rate >= 0.80 (S2) | 0.767 | **no** |
 | T3 abstention correctness >= 0.70 (S2) | 0.700 | yes |
-| T4 latency p95 < 1.5 s without reranker (S2) | 48.6 ms | yes |
+| T4 latency p95 < 1.5 s without reranker (S2) | 77.0 ms | yes |
 | T4 latency p95 < 3 s with reranker | not measured | n/a - reranker (S3) is a stretch goal, not implemented |
 | T5 ACL leakage = 0 | 0 leaks / 18576 passages checked (9 principals x 70 queries x 3 systems) | yes |
 <!-- RESULTS:TARGETS:END -->
@@ -75,9 +75,9 @@ Source: `eval/results/eval_20261110-122030.json` (copy: `eval_latest.json`), tes
 <!-- RESULTS:STATS:START -->
 | Comparison (60 in-scope test queries) | mean diff | bootstrap 95% CI | p (two-sided) |
 |---|---|---|---|
-| S2 vs B0 ndcg@10 | 0.1519 | [0.0897, 0.2191] | 0.0001 |
+| S2 vs B0 ndcg@10 | 0.1516 | [0.0894, 0.2189] | 0.0001 |
 | S2 vs B0 recall@10 | 0.2028 | [0.1166, 0.2972] | 0.0002 |
-| S2 vs S1 ndcg@10 | 0.0015 | [-0.0506, 0.0546] | 0.9556 |
+| S2 vs S1 ndcg@10 | 0.0012 | [-0.0512, 0.0544] | 0.9652 |
 | S2 vs S1 recall@10 | 0.0375 | [-0.0333, 0.1083] | 0.3799 |
 | S1 vs B0 ndcg@10 | 0.1505 | [0.0686, 0.2341] | 0.0006 |
 | S1 vs B0 recall@10 | 0.1653 | [0.0597, 0.2722] | 0.0037 |
@@ -92,7 +92,7 @@ Paired sign-flip randomization test, 10000 iterations, seed 14. Reported as evid
 | conceptual | 9 | 0 | 0.391 | 0.445 | 0.504 | 0.556 | 0.556 | 0.778 | n/a | n/a | n/a |
 | keyword | 27 | 0 | 0.736 | 0.775 | 0.796 | 0.852 | 0.963 | 0.926 | n/a | n/a | n/a |
 | out_of_scope | 0 | 10 | n/a | n/a | n/a | n/a | n/a | n/a | 0.500 | 0.700 | 0.700 |
-| paraphrase | 24 | 0 | 0.157 | 0.468 | 0.427 | 0.292 | 0.542 | 0.583 | n/a | n/a | n/a |
+| paraphrase | 24 | 0 | 0.157 | 0.468 | 0.426 | 0.292 | 0.542 | 0.583 | n/a | n/a | n/a |
 
 | by_lang | in | oos | nDCG@10 B0 | S1 | S2 | corr.src B0 | S1 | S2 | abst. B0 | S1 | S2 |
 |---|---|---|---|---|---|---|---|---|---|---|---|
@@ -102,19 +102,19 @@ Paired sign-flip randomization test, 10000 iterations, seed 14. Reported as evid
 | by_target_source | in | oos | nDCG@10 B0 | S1 | S2 | corr.src B0 | S1 | S2 | abst. B0 | S1 | S2 |
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | d1a: | 36 | 0 | 0.431 | 0.550 | 0.558 | 0.611 | 0.722 | 0.722 | n/a | n/a | n/a |
-| d1b: | 24 | 0 | 0.484 | 0.682 | 0.674 | 0.542 | 0.750 | 0.833 | n/a | n/a | n/a |
+| d1b: | 24 | 0 | 0.484 | 0.682 | 0.673 | 0.542 | 0.750 | 0.833 | n/a | n/a | n/a |
 <!-- RESULTS:BYTYPE:END -->
 
 ### Latency
 <!-- RESULTS:LATENCY:START -->
 | Configuration (POST /v1/search, in-process API) | n | p50 ms | p95 ms | max ms |
 |---|---|---|---|---|
-| B0 | 70 | 10.7 | 18.3 | 30.8 |
-| S1 | 70 | 30.7 | 44.7 | 62.2 |
-| S2 | 70 | 32.9 | 48.6 | 52.2 |
-| S2+shadow_B0 | 70 | 41.7 | 156.2 | 181.7 |
+| B0 | 70 | 9.4 | 15.5 | 17.7 |
+| S1 | 70 | 46.0 | 91.1 | 97.9 |
+| S2 | 70 | 46.8 | 77.0 | 89.5 |
+| S2+shadow_B0 | 70 | 43.6 | 94.2 | 101.4 |
 
-Hardware: NVIDIA GeForce RTX 5070 Laptop GPU, CPU AMD64 Family 25 Model 97 Stepping 2, AuthenticAMD (32 logical), RAM 31.1 GB, Windows-10-10.0.26200-SP0, Python 3.11.18, torch 2.11.0+cu128. Versions: {'pipeline_version': '0.1.0', 'chunker_version': 'chunker-1', 'embedding_model': 'intfloat/multilingual-e5-small', 'reranker_model': None, 'index_snapshot_id': 'idx-7a7b048cd9fb6a57'}.
+Hardware: NVIDIA GeForce RTX 5070 Laptop GPU, CPU AMD64 Family 25 Model 97 Stepping 2, AuthenticAMD (32 logical), RAM 31.1 GB, Windows-10-10.0.26200-SP0, Python 3.11.18, torch 2.11.0+cu128. Versions: {'pipeline_version': '0.1.0', 'chunker_version': 'chunker-1', 'embedding_model': 'intfloat/multilingual-e5-small', 'reranker_model': None, 'index_snapshot_id': 'idx-d90ca31ee5aee092'}.
 <!-- RESULTS:LATENCY:END -->
 
 ## D2 sanity benchmark (SciFact)

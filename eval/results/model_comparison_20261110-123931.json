@@ -1,0 +1,85 @@
+{
+  "split": "tuning",
+  "n_queries": 40,
+  "hardware": {
+    "os": "Windows-10-10.0.26200-SP0",
+    "cpu": "AMD64 Family 25 Model 97 Stepping 2, AuthenticAMD",
+    "cpu_count": 32,
+    "python": "3.11.18",
+    "ram_gb": 31.1,
+    "gpu": "NVIDIA GeForce RTX 5070 Laptop GPU",
+    "torch": "2.11.0+cu128"
+  },
+  "models": {
+    "intfloat/multilingual-e5-small": {
+      "seconds_for_all_queries": 1.25,
+      "embedding_dim": 384,
+      "S1": {
+        "recall@1": 0.4093,
+        "recall@5": 0.7794,
+        "recall@10": 0.8333,
+        "precision@1": 0.5,
+        "precision@5": 0.2059,
+        "precision@10": 0.1118,
+        "mrr@10": 0.6476,
+        "ndcg@10": 0.645,
+        "correct_source@3": 0.8235,
+        "n_in_scope": 34,
+        "n_out_of_scope": 6,
+        "abstention_correctness": 0.8333,
+        "false_abstention_rate": 0.1176
+      },
+      "S2": {
+        "recall@1": 0.527,
+        "recall@5": 0.8284,
+        "recall@10": 0.9167,
+        "precision@1": 0.6176,
+        "precision@5": 0.2353,
+        "precision@10": 0.1294,
+        "mrr@10": 0.7375,
+        "ndcg@10": 0.7328,
+        "correct_source@3": 0.8529,
+        "n_in_scope": 34,
+        "n_out_of_scope": 6,
+        "abstention_correctness": 0.8333,
+        "false_abstention_rate": 0.1176
+      }
+    },
+    "ibm-granite/granite-embedding-107m-multilingual": {
+      "seconds_for_all_queries": 1.01,
+      "embedding_dim": 384,
+      "S1": {
+        "recall@1": 0.3995,
+        "recall@5": 0.7034,
+        "recall@10": 0.7549,
+        "precision@1": 0.5,
+        "precision@5": 0.1824,
+        "precision@10": 0.1,
+        "mrr@10": 0.6189,
+        "ndcg@10": 0.6036,
+        "correct_source@3": 0.8529,
+        "n_in_scope": 34,
+        "n_out_of_scope": 6,
+        "abstention_correctness": 1.0,
+        "false_abstention_rate": 0.9706
+      },
+      "S2": {
+        "recall@1": 0.5564,
+        "recall@5": 0.7647,
+        "recall@10": 0.7794,
+        "precision@1": 0.6471,
+        "precision@5": 0.2059,
+        "precision@10": 0.1059,
+        "mrr@10": 0.724,
+        "ndcg@10": 0.6928,
+        "correct_source@3": 0.8235,
+        "n_in_scope": 34,
+        "n_out_of_scope": 6,
+        "abstention_correctness": 1.0,
+        "false_abstention_rate": 0.9706
+      }
+    }
+  },
+  "selected_by_rule": "intfloat/multilingual-e5-small",
+  "rule": "highest S2 nDCG@10 on the tuning split; tie -> smaller embedding dimension"
+}

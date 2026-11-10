@@ -12,7 +12,7 @@
   },
   "models": {
     "intfloat/multilingual-e5-small": {
-      "seconds_for_all_queries": 1.13,
+      "seconds_for_all_queries": 1.21,
       "embedding_dim": 384,
       "S1": {
         "recall@1": 0.4093,
@@ -26,27 +26,27 @@
         "correct_source@3": 0.8235,
         "n_in_scope": 34,
         "n_out_of_scope": 6,
-        "abstention_correctness": 0.0,
-        "false_abstention_rate": 0.0
+        "abstention_correctness": 0.8333,
+        "false_abstention_rate": 0.1176
       },
       "S2": {
         "recall@1": 0.527,
-        "recall@5": 0.8137,
+        "recall@5": 0.8284,
         "recall@10": 0.9167,
         "precision@1": 0.6176,
-        "precision@5": 0.2294,
+        "precision@5": 0.2353,
         "precision@10": 0.1294,
-        "mrr@10": 0.7365,
-        "ndcg@10": 0.7324,
+        "mrr@10": 0.7375,
+        "ndcg@10": 0.7328,
         "correct_source@3": 0.8529,
         "n_in_scope": 34,
         "n_out_of_scope": 6,
-        "abstention_correctness": 0.0,
-        "false_abstention_rate": 0.0
+        "abstention_correctness": 0.8333,
+        "false_abstention_rate": 0.1176
       }
     },
     "ibm-granite/granite-embedding-107m-multilingual": {
-      "seconds_for_all_queries": 1.13,
+      "seconds_for_all_queries": 0.99,
       "embedding_dim": 384,
       "S1": {
         "recall@1": 0.3995,
@@ -60,8 +60,8 @@
         "correct_source@3": 0.8529,
         "n_in_scope": 34,
         "n_out_of_scope": 6,
-        "abstention_correctness": 0.0,
-        "false_abstention_rate": 0.0
+        "abstention_correctness": 1.0,
+        "false_abstention_rate": 0.9706
       },
       "S2": {
         "recall@1": 0.5564,
@@ -75,8 +75,8 @@
         "correct_source@3": 0.8235,
         "n_in_scope": 34,
         "n_out_of_scope": 6,
-        "abstention_correctness": 0.0,
-        "false_abstention_rate": 0.0
+        "abstention_correctness": 1.0,
+        "false_abstention_rate": 0.9706
       }
     }
   },
