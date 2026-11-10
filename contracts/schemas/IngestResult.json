@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://p14.example/contracts/v1/IngestResult.json",
+  "properties": {
+    "document_id": {
+      "title": "Document Id",
+      "type": "string"
+    },
+    "document_version": {
+      "title": "Document Version",
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "pending",
+        "approved"
+      ],
+      "title": "Status",
+      "type": "string"
+    },
+    "passages": {
+      "title": "Passages",
+      "type": "integer"
+    },
+    "unchanged": {
+      "default": false,
+      "description": "True when the same version was already ingested.",
+      "title": "Unchanged",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "document_id",
+    "document_version",
+    "status",
+    "passages"
+  ],
+  "title": "IngestResult",
+  "type": "object"
+}

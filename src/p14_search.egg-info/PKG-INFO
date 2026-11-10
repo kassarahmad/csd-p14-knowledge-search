@@ -1,0 +1,60 @@
+Metadata-Version: 2.4
+Name: p14-search
+Version: 0.1.0
+Summary: P14 - Intelligent search across organizational knowledge (AI Puzzle, Complex Systems Design, UNICAM)
+Requires-Python: <3.12,>=3.11
+Description-Content-Type: text/markdown
+Requires-Dist: fastapi>=0.115
+Requires-Dist: uvicorn[standard]>=0.30
+Requires-Dist: pydantic>=2.7
+Requires-Dist: pydantic-settings>=2.3
+Requires-Dist: qdrant-client>=1.12
+Requires-Dist: sentence-transformers>=3.0
+Requires-Dist: torch>=2.7
+Requires-Dist: numpy>=1.26
+Requires-Dist: pypdf>=5.0
+Requires-Dist: python-docx>=1.1
+Requires-Dist: beautifulsoup4>=4.12
+Requires-Dist: defusedxml>=0.7
+Requires-Dist: pyyaml>=6.0
+Provides-Extra: dev
+Requires-Dist: pytest>=8.0; extra == "dev"
+Requires-Dist: httpx>=0.27; extra == "dev"
+Requires-Dist: jsonschema>=4.22; extra == "dev"
+Provides-Extra: data
+Requires-Dist: fpdf2>=2.7; extra == "data"
+Provides-Extra: ui
+Requires-Dist: streamlit>=1.38; extra == "ui"
+Requires-Dist: requests>=2.32; extra == "ui"
+
+# P14 - Intelligent Search Across Organizational Knowledge
+
+Complex Systems Design - UNICAM - AI Puzzle framework v5.0 (piece P14, provisional).
+
+Semantic + keyword search over authorised organizational documents, returning ranked documents,
+the passages that answer the query, precise source references and metadata, with an optional summary
+built only from retrieved content.
+
+## Status
+Design phase. See `docs/PROGRESS.md`.
+
+## Planned stack (see docs/DECISIONS.md)
+Python 3.11 - FastAPI - Pydantic - Qdrant (Docker) - sentence-transformers - BM25 baseline - optional cross-encoder reranker - SQLite - pytest - Docker Compose - Streamlit demo UI.
+
+## Setup
+To be written once the MVP exists (Phase 3).
+
+## Documentation
+| File | Content |
+|---|---|
+| docs/COURSE_REQUIREMENTS.md | Requirements verified in the course document |
+| docs/PROJECT_PROPOSAL.md | Problem, scope, inputs/outputs, success criteria |
+| docs/ARCHITECTURE.md | Architecture and diagrams |
+| docs/INTEGRATION.md | API contract and puzzle connections |
+| docs/DATA.md | Data sources, schema, licence, privacy |
+| docs/EVALUATION.md | Methodology and (real) results |
+| docs/SECURITY_OVERSIGHT.md | Security, traceability, human oversight |
+| docs/ROADMAP.md | Internal plan |
+| docs/DECISIONS.md | Architectural decision log |
+| docs/PROGRESS.md | Current state |
+| docs/OPEN_QUESTIONS.md | Items awaiting confirmation |

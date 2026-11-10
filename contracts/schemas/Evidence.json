@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://p14.example/contracts/v1/Evidence.json",
+  "description": "Ranking evidence. Scores are NOT calibrated probabilities and must not be read as confidence.",
+  "properties": {
+    "score": {
+      "description": "Score of the system that produced the ranking (RRF for hybrid).",
+      "title": "Score",
+      "type": "number"
+    },
+    "rank": {
+      "minimum": 1,
+      "title": "Rank",
+      "type": "integer"
+    },
+    "retriever_ranks": {
+      "additionalProperties": {
+        "anyOf": [
+          {
+            "type": "integer"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "description": "Rank in each retriever (bm25, dense); null = not retrieved.",
+      "title": "Retriever Ranks",
+      "type": "object"
+    },
+    "retriever_scores": {
+      "additionalProperties": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "title": "Retriever Scores",
+      "type": "object"
+    }
+  },
+  "required": [
+    "score",
+    "rank",
+    "retriever_ranks",
+    "retriever_scores"
+  ],
+  "title": "Evidence",
+  "type": "object"
+}

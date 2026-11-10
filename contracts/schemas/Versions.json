@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://p14.example/contracts/v1/Versions.json",
+  "properties": {
+    "pipeline_version": {
+      "title": "Pipeline Version",
+      "type": "string"
+    },
+    "chunker_version": {
+      "title": "Chunker Version",
+      "type": "string"
+    },
+    "embedding_model": {
+      "title": "Embedding Model",
+      "type": "string"
+    },
+    "reranker_model": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Reranker Model"
+    },
+    "index_snapshot_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Index Snapshot Id"
+    }
+  },
+  "required": [
+    "pipeline_version",
+    "chunker_version",
+    "embedding_model",
+    "reranker_model",
+    "index_snapshot_id"
+  ],
+  "title": "Versions",
+  "type": "object"
+}

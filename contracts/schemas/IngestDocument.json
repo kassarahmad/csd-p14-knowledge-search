@@ -1,0 +1,207 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://p14.example/contracts/v1/IngestDocument.json",
+  "$defs": {
+    "AccessLevel": {
+      "enum": [
+        "public",
+        "internal",
+        "restricted"
+      ],
+      "title": "AccessLevel",
+      "type": "string"
+    },
+    "DocumentMetadata": {
+      "additionalProperties": false,
+      "properties": {
+        "office": {
+          "description": "Owning office, e.g. hr, it, legal.",
+          "maxLength": 40,
+          "minLength": 1,
+          "title": "Office",
+          "type": "string"
+        },
+        "type": {
+          "description": "Document type, e.g. legislation, procedure, faq.",
+          "maxLength": 40,
+          "minLength": 1,
+          "title": "Type",
+          "type": "string"
+        },
+        "author": {
+          "anyOf": [
+            {
+              "maxLength": 200,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Author"
+        },
+        "date": {
+          "anyOf": [
+            {
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "ISO date (YYYY-MM-DD) of the document.",
+          "title": "Date"
+        },
+        "project": {
+          "anyOf": [
+            {
+              "maxLength": 100,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Project"
+        },
+        "source_url": {
+          "anyOf": [
+            {
+              "maxLength": 2000,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Where the original was obtained.",
+          "title": "Source Url"
+        }
+      },
+      "required": [
+        "office",
+        "type"
+      ],
+      "title": "DocumentMetadata",
+      "type": "object"
+    },
+    "FileContent": {
+      "additionalProperties": false,
+      "properties": {
+        "filename": {
+          "maxLength": 255,
+          "minLength": 1,
+          "title": "Filename",
+          "type": "string"
+        },
+        "media_type": {
+          "enum": [
+            "application/pdf",
+            "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "text/html",
+            "text/plain"
+          ],
+          "title": "Media Type",
+          "type": "string"
+        },
+        "content_base64": {
+          "description": "File bytes, base64-encoded.",
+          "title": "Content Base64",
+          "type": "string"
+        }
+      },
+      "required": [
+        "filename",
+        "media_type",
+        "content_base64"
+      ],
+      "title": "FileContent",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Inbound format shared by every producer (admin upload, P11, P15, P25).",
+  "properties": {
+    "source_id": {
+      "description": "Source/repository identifier.",
+      "pattern": "^[a-z0-9][a-z0-9_-]{0,31}$",
+      "title": "Source Id",
+      "type": "string"
+    },
+    "external_id": {
+      "description": "Id of the document in its source.",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$",
+      "title": "External Id",
+      "type": "string"
+    },
+    "title": {
+      "maxLength": 500,
+      "minLength": 1,
+      "title": "Title",
+      "type": "string"
+    },
+    "file": {
+      "$ref": "#/$defs/FileContent"
+    },
+    "metadata": {
+      "$ref": "#/$defs/DocumentMetadata"
+    },
+    "access_level": {
+      "$ref": "#/$defs/AccessLevel"
+    },
+    "owner": {
+      "description": "Accountable owner (a role, not a person).",
+      "maxLength": 200,
+      "minLength": 1,
+      "title": "Owner",
+      "type": "string"
+    },
+    "source_piece": {
+      "default": "P14",
+      "description": "Puzzle piece that produced the document.",
+      "pattern": "^P\\d{2}$",
+      "title": "Source Piece",
+      "type": "string"
+    },
+    "validated_by": {
+      "anyOf": [
+        {
+          "maxLength": 200,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Expert validation (P25 knowledge cards).",
+      "title": "Validated By"
+    },
+    "synthetic": {
+      "default": false,
+      "title": "Synthetic",
+      "type": "boolean"
+    },
+    "llm_generated": {
+      "default": false,
+      "title": "Llm Generated",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "source_id",
+    "external_id",
+    "title",
+    "file",
+    "metadata",
+    "access_level",
+    "owner"
+  ],
+  "title": "IngestDocument",
+  "type": "object"
+}

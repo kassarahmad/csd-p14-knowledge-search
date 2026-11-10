@@ -1,0 +1,182 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://p14.example/contracts/v1/DocumentInfo.json",
+  "$defs": {
+    "AccessLevel": {
+      "enum": [
+        "public",
+        "internal",
+        "restricted"
+      ],
+      "title": "AccessLevel",
+      "type": "string"
+    },
+    "DocumentMetadata": {
+      "additionalProperties": false,
+      "properties": {
+        "office": {
+          "description": "Owning office, e.g. hr, it, legal.",
+          "maxLength": 40,
+          "minLength": 1,
+          "title": "Office",
+          "type": "string"
+        },
+        "type": {
+          "description": "Document type, e.g. legislation, procedure, faq.",
+          "maxLength": 40,
+          "minLength": 1,
+          "title": "Type",
+          "type": "string"
+        },
+        "author": {
+          "anyOf": [
+            {
+              "maxLength": 200,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Author"
+        },
+        "date": {
+          "anyOf": [
+            {
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "ISO date (YYYY-MM-DD) of the document.",
+          "title": "Date"
+        },
+        "project": {
+          "anyOf": [
+            {
+              "maxLength": 100,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Project"
+        },
+        "source_url": {
+          "anyOf": [
+            {
+              "maxLength": 2000,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Where the original was obtained.",
+          "title": "Source Url"
+        }
+      },
+      "required": [
+        "office",
+        "type"
+      ],
+      "title": "DocumentMetadata",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "document_id": {
+      "title": "Document Id",
+      "type": "string"
+    },
+    "source_id": {
+      "title": "Source Id",
+      "type": "string"
+    },
+    "external_id": {
+      "title": "External Id",
+      "type": "string"
+    },
+    "title": {
+      "title": "Title",
+      "type": "string"
+    },
+    "access_level": {
+      "$ref": "#/$defs/AccessLevel"
+    },
+    "metadata": {
+      "$ref": "#/$defs/DocumentMetadata"
+    },
+    "owner": {
+      "title": "Owner",
+      "type": "string"
+    },
+    "source_piece": {
+      "title": "Source Piece",
+      "type": "string"
+    },
+    "validated_by": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Validated By"
+    },
+    "synthetic": {
+      "title": "Synthetic",
+      "type": "boolean"
+    },
+    "llm_generated": {
+      "title": "Llm Generated",
+      "type": "boolean"
+    },
+    "status": {
+      "enum": [
+        "pending",
+        "approved"
+      ],
+      "title": "Status",
+      "type": "string"
+    },
+    "current_version": {
+      "title": "Current Version",
+      "type": "string"
+    },
+    "versions": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Versions",
+      "type": "array"
+    }
+  },
+  "required": [
+    "document_id",
+    "source_id",
+    "external_id",
+    "title",
+    "access_level",
+    "metadata",
+    "owner",
+    "source_piece",
+    "validated_by",
+    "synthetic",
+    "llm_generated",
+    "status",
+    "current_version",
+    "versions"
+  ],
+  "title": "DocumentInfo",
+  "type": "object"
+}

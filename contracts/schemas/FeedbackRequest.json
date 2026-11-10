@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://p14.example/contracts/v1/FeedbackRequest.json",
+  "$defs": {
+    "FeedbackJudgement": {
+      "enum": [
+        "useful",
+        "not_useful",
+        "wrong_source"
+      ],
+      "title": "FeedbackJudgement",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "request_id": {
+      "maxLength": 64,
+      "minLength": 1,
+      "title": "Request Id",
+      "type": "string"
+    },
+    "passage_id": {
+      "maxLength": 64,
+      "minLength": 1,
+      "title": "Passage Id",
+      "type": "string"
+    },
+    "judgement": {
+      "$ref": "#/$defs/FeedbackJudgement"
+    },
+    "comment": {
+      "anyOf": [
+        {
+          "maxLength": 1000,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Comment"
+    }
+  },
+  "required": [
+    "request_id",
+    "passage_id",
+    "judgement"
+  ],
+  "title": "FeedbackRequest",
+  "type": "object"
+}
