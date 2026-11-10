@@ -1,0 +1,5 @@
+{
+  "sha256": "986469f15d0a82c3ca439cbd97737808fdad971434035e30744c23efd5891207",
+  "test_queries": 70,
+  "rule": "frozen before any tuning"
+}

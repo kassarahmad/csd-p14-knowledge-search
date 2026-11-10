@@ -18,7 +18,7 @@ Each query record contains:
 ## 2. From targets to passage-level graded qrels
 `eval/build_qrels.py` derives graded qrels for the CURRENT index (so they survive re-chunking):
 - **grade 2** - the passage contains the target snippet (after lower-casing and whitespace normalisation), in any document (duplicates of the same text are also relevant);
-- **grade 1** - the passage belongs to a target document and its section starts with the target section, but does not contain the snippet (same article, partially relevant);
+- **grade 1** - the passage belongs to a target document and its section starts with the target section, but does not contain the snippet (same article, partially relevant). Not applied when the section has more than 30 passages (e.g. L. 190/2012 is a single article): it would not be a precise location. In a paginated GU issue, grade 1 is limited to pages next to the snippet (several acts in one issue have an "Art. 1");
 - **grade 0** - everything else (not judged = not relevant).
 A query whose snippet matches no passage is reported as an error by the script (the annotation must be fixed, not ignored).
 

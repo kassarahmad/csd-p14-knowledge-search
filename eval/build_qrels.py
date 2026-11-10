@@ -17,6 +17,7 @@ from p14_search.indexing.store import Store
 ROOT = Path(__file__).resolve().parents[1]
 QUERIES = ROOT / "eval" / "queries" / "d1_queries.jsonl"
 OUT = ROOT / "eval" / "qrels" / "d1_qrels.json"
+MAX_SECTION_PASSAGES = 30
 
 
 def norm(text: str) -> str:
@@ -48,12 +49,17 @@ def build(store: Store, queries: list[dict]) -> tuple[dict, list[str]]:
             # In a Gazzetta Ufficiale issue several acts have an 'Art. 1': for paginated documents, grade 1 is
             # limited to pages next to the snippet.
             pages = [page for _, did, page in hits if did == t["document_id"] and page is not None]
-            for pid, did, section, page, _ in normed:
-                if did != t["document_id"] or not t.get("section") or not same_section(section, t["section"]):
-                    continue
-                if pages and page is not None and not (min(pages) - 1 <= page <= max(pages) + 1):
-                    continue
-                grades.setdefault(pid, 1)
+            same = [
+                pid
+                for pid, did, section, page, _ in normed
+                if did == t["document_id"] and t.get("section") and same_section(section, t["section"])
+                and not (pages and page is not None and not (min(pages) - 1 <= page <= max(pages) + 1))
+            ]
+            # A "section" longer than MAX_SECTION_PASSAGES is not a precise location (e.g. L. 190/2012 is one
+            # single article): then only the snippet passages count.
+            if len(same) <= MAX_SECTION_PASSAGES:
+                for pid in same:
+                    grades.setdefault(pid, 1)
         qrels[q["qid"]] = grades
     return qrels, errors
 
