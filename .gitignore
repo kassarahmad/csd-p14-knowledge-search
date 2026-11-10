@@ -12,4 +12,5 @@ data/processed/*
 qdrant_storage/
 .ipynb_checkpoints/
 *.log
-.DS_Store
+.DS_Store*.egg-info/
+config/local_*.json
