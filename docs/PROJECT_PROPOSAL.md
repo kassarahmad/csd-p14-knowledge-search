@@ -6,13 +6,14 @@ Follows the shared 7-section template of the AI Puzzle framework (see COURSE_REQ
 A local, reproducible search service that retrieves organizational knowledge by meaning (dense embeddings) and by keyword (BM25), fuses and optionally reranks results, and returns documents, passages and verifiable citations through a documented REST API. Access levels are enforced inside retrieval. The service never acts on its own: it returns evidence, and a person decides what to do with it.
 
 ## 2. Input data sources
-- Case-study corpus: TO BE DECIDED in ADR-003. Scope of input types (which of the sheet's sources we cover - documents, intranet/website, FAQs, mailboxes - and which we exclude), number of source connectors and query language are fixed there.
+- Case-study corpus (ADR-003, docs/DATA.md): fictional public organization "Ente Demo" = 32 real Italian official acts (D1a, public) + 25 synthetic, LLM-generated internal documents (D1b, public/internal/restricted). Formats: HTML, TXT, PDF, DOCX. Two source connectors (d1a, d1b).
+- Out of scope: website/intranet crawling and shared mailboxes (no real organization, privacy); internal FAQs are covered by synthetic FAQ documents.
 - Metadata per document: author/owner, date, office, type, project, access level.
-- User queries (free text; language: see ADR-003).
+- User queries: free text in Italian, about 10% in English (cross-lingual).
 
 ## 3. Objectives
 Reduce time-to-information; tolerate vocabulary mismatch; link related sources; make provenance always verifiable; respect access levels.
-How "reduce time-to-information" is measured (or declared as a limitation) is decided together with ADR-003.
+"Reduce time-to-information" is measured only through proxies (latency, MRR, rank of the first relevant passage); no user study (declared limitation).
 
 ## 4. Expected output
 Machine-readable JSON (contracts/schemas) with: ranked documents, passages with persistent ids, scores and ranks as `evidence` (not calibrated probabilities), citation (document id, document version, title, page/section, char offsets), metadata, version block (pipeline, chunker, embedding model, reranker, index snapshot), an explicit `insufficient_evidence` flag, and an optional **extractive** summary in which every sentence carries the `passage_id` it was taken from.

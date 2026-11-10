@@ -1,0 +1,39 @@
+{
+  "description": "D1a - REAL Italian official acts used as the public legal knowledge of the fictional organization 'Ente Demo'. Fetched by scripts/fetch_corpus.py. html = Normattiva consolidated export (as served); txt = plain-text rendition of the same export produced by the script; pdf = Gazzetta Ufficiale issue as originally published.",
+  "acts": [
+    {"id": "l-2017-81", "urn": "urn:nir:stato:legge:2017-05-22;81", "short": "L. 81/2017 (lavoro agile)", "format": "pdf", "office": "hr"},
+    {"id": "dlgs-2023-24", "urn": "urn:nir:stato:decreto.legislativo:2023-03-10;24", "short": "D.Lgs. 24/2023 (whistleblowing)", "format": "pdf", "office": "legal"},
+    {"id": "l-2024-90", "urn": "urn:nir:stato:legge:2024-06-28;90", "short": "L. 90/2024 (cybersicurezza)", "format": "pdf", "office": "it"},
+    {"id": "dlgs-2022-105", "urn": "urn:nir:stato:decreto.legislativo:2022-06-30;105", "short": "D.Lgs. 105/2022 (conciliazione vita-lavoro)", "format": "pdf", "office": "hr"},
+    {"id": "dpr-2013-62", "urn": "urn:nir:stato:decreto.presidente.repubblica:2013-04-16;62", "short": "D.P.R. 62/2013 (codice di comportamento)", "format": "pdf", "office": "legal"},
+    {"id": "dlgs-2022-104", "urn": "urn:nir:stato:decreto.legislativo:2022-06-27;104", "short": "D.Lgs. 104/2022 (condizioni di lavoro trasparenti)", "format": "html", "office": "hr"},
+    {"id": "l-2004-4", "urn": "urn:nir:stato:legge:2004-01-09;4", "short": "L. 4/2004 (accessibilita)", "format": "pdf", "office": "it"},
+    {"id": "dpr-2005-68", "urn": "urn:nir:stato:decreto.presidente.repubblica:2005-02-11;68", "short": "D.P.R. 68/2005 (PEC)", "format": "pdf", "office": "it"},
+
+    {"id": "l-1990-241", "urn": "urn:nir:stato:legge:1990-08-07;241", "short": "L. 241/1990 (procedimento amministrativo)", "format": "txt", "office": "legal"},
+    {"id": "l-2012-190", "urn": "urn:nir:stato:legge:2012-11-06;190", "short": "L. 190/2012 (anticorruzione)", "format": "txt", "office": "legal"},
+    {"id": "dlgs-2003-66", "urn": "urn:nir:stato:decreto.legislativo:2003-04-08;66", "short": "D.Lgs. 66/2003 (orario di lavoro)", "format": "txt", "office": "hr"},
+    {"id": "l-1992-104", "urn": "urn:nir:stato:legge:1992-02-05;104", "short": "L. 104/1992 (handicap)", "format": "txt", "office": "hr"},
+    {"id": "dlgs-2013-39", "urn": "urn:nir:stato:decreto.legislativo:2013-04-08;39", "short": "D.Lgs. 39/2013 (inconferibilita e incompatibilita)", "format": "txt", "office": "legal"},
+    {"id": "dpr-2006-184", "urn": "urn:nir:stato:decreto.presidente.repubblica:2006-04-12;184", "short": "D.P.R. 184/2006 (accesso ai documenti)", "format": "txt", "office": "legal"},
+
+    {"id": "dlgs-2008-81", "urn": "urn:nir:stato:decreto.legislativo:2008-04-09;81", "short": "D.Lgs. 81/2008 (sicurezza sul lavoro)", "format": "html", "office": "safety"},
+    {"id": "dlgs-2003-196", "urn": "urn:nir:stato:decreto.legislativo:2003-06-30;196", "short": "D.Lgs. 196/2003 (codice privacy)", "format": "html", "office": "privacy"},
+    {"id": "dlgs-2005-82", "urn": "urn:nir:stato:decreto.legislativo:2005-03-07;82", "short": "D.Lgs. 82/2005 (CAD)", "format": "html", "office": "it"},
+    {"id": "dlgs-2013-33", "urn": "urn:nir:stato:decreto.legislativo:2013-03-14;33", "short": "D.Lgs. 33/2013 (trasparenza)", "format": "html", "office": "legal"},
+    {"id": "dlgs-2001-165", "urn": "urn:nir:stato:decreto.legislativo:2001-03-30;165", "short": "D.Lgs. 165/2001 (pubblico impiego)", "format": "html", "office": "hr"},
+    {"id": "dpr-2000-445", "urn": "urn:nir:stato:decreto.presidente.repubblica:2000-12-28;445", "short": "D.P.R. 445/2000 (documentazione amministrativa)", "format": "html", "office": "legal"},
+    {"id": "dlgs-2001-151", "urn": "urn:nir:stato:decreto.legislativo:2001-03-26;151", "short": "D.Lgs. 151/2001 (maternita e paternita)", "format": "html", "office": "hr"},
+    {"id": "l-1970-300", "urn": "urn:nir:stato:legge:1970-05-20;300", "short": "L. 300/1970 (statuto dei lavoratori)", "format": "html", "office": "hr"},
+    {"id": "dlgs-2009-150", "urn": "urn:nir:stato:decreto.legislativo:2009-10-27;150", "short": "D.Lgs. 150/2009 (performance)", "format": "html", "office": "hr"},
+    {"id": "l-1999-68", "urn": "urn:nir:stato:legge:1999-03-12;68", "short": "L. 68/1999 (diritto al lavoro dei disabili)", "format": "html", "office": "hr"},
+    {"id": "dlgs-2006-198", "urn": "urn:nir:stato:decreto.legislativo:2006-04-11;198", "short": "D.Lgs. 198/2006 (pari opportunita)", "format": "html", "office": "hr"},
+    {"id": "dlgs-2024-138", "urn": "urn:nir:stato:decreto.legislativo:2024-09-04;138", "short": "D.Lgs. 138/2024 (NIS2)", "format": "html", "office": "it"},
+    {"id": "dpr-1994-487", "urn": "urn:nir:stato:decreto.presidente.repubblica:1994-05-09;487", "short": "D.P.R. 487/1994 (concorsi pubblici)", "format": "html", "office": "hr"},
+    {"id": "l-2000-53", "urn": "urn:nir:stato:legge:2000-03-08;53", "short": "L. 53/2000 (congedi)", "format": "html", "office": "hr"},
+    {"id": "dlgs-2018-101", "urn": "urn:nir:stato:decreto.legislativo:2018-08-10;101", "short": "D.Lgs. 101/2018 (adeguamento GDPR)", "format": "html", "office": "privacy"},
+    {"id": "dlgs-2015-81", "urn": "urn:nir:stato:decreto.legislativo:2015-06-15;81", "short": "D.Lgs. 81/2015 (disciplina dei contratti di lavoro)", "format": "html", "office": "hr"},
+    {"id": "l-2015-124", "urn": "urn:nir:stato:legge:2015-08-07;124", "short": "L. 124/2015 (riorganizzazione PA)", "format": "html", "office": "legal"},
+    {"id": "dl-2021-80", "urn": "urn:nir:stato:decreto.legge:2021-06-09;80", "short": "D.L. 80/2021 (PIAO, capacita amministrativa)", "format": "html", "office": "hr"}
+  ]
+}

@@ -6,7 +6,7 @@ No results yet. Every number here must be produced by a re-runnable script in ev
 - RQ1: Does hybrid retrieval (dense + BM25) outperform a BM25-only baseline on our question set?
 - RQ2: Does a cross-encoder reranker improve early precision enough to justify its latency? (stretch)
 - RQ3: How does performance vary by query type (keyword-like, paraphrased, multi-hop/conceptual, out-of-scope)?
-- Further RQs (e.g. cross-lingual queries): TO BE DECIDED with ADR-003.
+- RQ4: How do the systems behave on English queries over an Italian corpus (cross-lingual)?
 
 ## Systems compared
 B0 BM25 only (baseline, SQLite FTS5) - S1 dense only - S2 hybrid (RRF fusion) - S3 hybrid + reranker (stretch).
@@ -24,7 +24,7 @@ Recall@K, Precision@K (K = 1, 5, 10), MRR@10, nDCG@10, correct-source rate, sour
 
 ## Datasets
 - D1 (case study): our corpus (ADR-003) + hand-written queries with passage-level qrels. At least 100 queries, of which at least 60 in a held-out test set; the rest is the tuning set (used e.g. to calibrate the `insufficient_evidence` threshold). Test queries are written and frozen before any tuning. Labelling protocol documented; single-annotator bias declared as a limitation.
-- D2 (optional sanity check): a small public benchmark with existing qrels. Choice and licence: TO BE DECIDED with ADR-003.
+- D2 (sanity check): BEIR SciFact (English; claims CC BY 4.0, abstracts ODC-By 1.0), with its own qrels, to show the pipeline behaves as expected. Not the case study.
 Synthetic or LLM-generated queries, if used, are labelled as such and never used alone.
 
 ## Acceptance targets - OUR proposed targets, NOT official course requirements
