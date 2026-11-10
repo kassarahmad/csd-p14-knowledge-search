@@ -36,9 +36,8 @@ def answer(question: str, http, api_key: str) -> dict:
         "status": "answered",
         "answer": " ".join(s["text"] for s in body["summary"]["sentences"]),
         "citations": [
-            {"passage_id": s["passage_id"], "title": cited[s["passage_id"]]["title"], "section": cited[s["passage_id"]]["section"],
-             "page": cited[s["passage_id"]]["page"]}
-            for s in body["summary"]["sentences"]
+            {"passage_id": pid, "title": cited[pid]["title"], "section": cited[pid]["section"], "page": cited[pid]["page"]}
+            for pid in dict.fromkeys(s["passage_id"] for s in body["summary"]["sentences"])  # each source once
         ],
         "p14_request_id": body["request_id"],
         "p14_versions": body["versions"],

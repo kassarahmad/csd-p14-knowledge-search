@@ -13,9 +13,20 @@ Environment: P14_URL (default http://127.0.0.1:8000), P14_KEY_P12.
 from __future__ import annotations
 
 import os
+import re
 import sys
 
 import httpx
+
+
+def best_sentence(text: str, topic: str, min_chars: int = 40) -> str | None:
+    """The sentence of the passage sharing most words with the topic (copied verbatim, never rewritten)."""
+    terms = {w for w in re.findall(r"\w+", topic.lower()) if len(w) > 3}
+    sentences = [s.strip() for s in re.split(r"(?<=[.;])\s+(?=[A-ZÀ-Ü])", text) if len(s.strip()) >= min_chars]
+    if not sentences:
+        return None
+    best = max(sentences, key=lambda s: len(terms & set(re.findall(r"\w+", s.lower()))))
+    return best if best.endswith((".", ";")) else best + "."
 
 
 def build_draft(topic: str, http, api_key: str, max_points: int = 4) -> dict:
@@ -33,7 +44,9 @@ def build_draft(topic: str, http, api_key: str, max_points: int = 4) -> dict:
         if resolved.status_code != 200:
             continue
         info = resolved.json()
-        sentence = info["text"].split(". ")[0].strip().rstrip(".") + "."
+        sentence = best_sentence(info["text"], topic)
+        if sentence is None:
+            continue
         where = ", ".join(x for x in (info["citation"]["section"], f"p. {info['citation']['page']}" if info["citation"]["page"] else None) if x)
         points.append({"text": sentence, "passage_id": info["passage_id"], "source": f"{info['citation']['title']} ({where})"})
         if len(points) == max_points:
