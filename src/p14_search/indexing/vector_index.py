@@ -25,13 +25,15 @@ class VectorIndex:
         self.dim = dim
 
     def ensure_collection(self) -> None:
-        if self.client.collection_exists(self.collection):
-            return
-        self.client.create_collection(
-            self.collection, vectors_config=qm.VectorParams(size=self.dim, distance=qm.Distance.COSINE)
-        )
+        """Idempotent: creates the collection and any missing payload index."""
+        if not self.client.collection_exists(self.collection):
+            self.client.create_collection(
+                self.collection, vectors_config=qm.VectorParams(size=self.dim, distance=qm.Distance.COSINE)
+            )
+        existing = set(self.client.get_collection(self.collection).payload_schema or {})
         for field in PAYLOAD_INDEXES:
-            self.client.create_payload_index(self.collection, field, qm.PayloadSchemaType.KEYWORD)
+            if field not in existing:
+                self.client.create_payload_index(self.collection, field, qm.PayloadSchemaType.KEYWORD)
 
     def upsert(self, payloads: list[dict], vectors: np.ndarray, batch: int = 256) -> None:
         for i in range(0, len(payloads), batch):

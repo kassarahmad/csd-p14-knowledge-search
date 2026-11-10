@@ -1,0 +1,122 @@
+{
+  "generated_at": "2026-11-10T11:01:34+00:00",
+  "index_snapshot_id": "idx-7a7b048cd9fb6a57",
+  "totals": {
+    "documents": 57,
+    "passages": 10689,
+    "text_chars": 6963295,
+    "raw_bytes": 28633473,
+    "passages_with_section_share": 0.9785,
+    "mean_passage_chars": 668.7
+  },
+  "source": {
+    "d1a": {
+      "documents": 32,
+      "passages": 10561,
+      "text_chars": 6928651
+    },
+    "d1b": {
+      "documents": 25,
+      "passages": 128,
+      "text_chars": 34644
+    }
+  },
+  "format": {
+    "d1a/html": {
+      "documents": 19,
+      "passages": 5399,
+      "text_chars": 3516692
+    },
+    "d1a/pdf": {
+      "documents": 7,
+      "passages": 4532,
+      "text_chars": 3034200
+    },
+    "d1a/txt": {
+      "documents": 6,
+      "passages": 630,
+      "text_chars": 377759
+    },
+    "d1b/docx": {
+      "documents": 8,
+      "passages": 51,
+      "text_chars": 10743
+    },
+    "d1b/pdf": {
+      "documents": 9,
+      "passages": 28,
+      "text_chars": 14141
+    },
+    "d1b/txt": {
+      "documents": 8,
+      "passages": 49,
+      "text_chars": 9760
+    }
+  },
+  "access_level": {
+    "internal": {
+      "documents": 14,
+      "passages": 83,
+      "text_chars": 19513
+    },
+    "public": {
+      "documents": 37,
+      "passages": 10582,
+      "text_chars": 6935358
+    },
+    "restricted": {
+      "documents": 6,
+      "passages": 24,
+      "text_chars": 8424
+    }
+  },
+  "office": {
+    "hr": {
+      "documents": 22,
+      "passages": 4169,
+      "text_chars": 2720220
+    },
+    "it": {
+      "documents": 9,
+      "passages": 2321,
+      "text_chars": 1561522
+    },
+    "legal": {
+      "documents": 16,
+      "passages": 2316,
+      "text_chars": 1503210
+    },
+    "privacy": {
+      "documents": 5,
+      "passages": 952,
+      "text_chars": 546090
+    },
+    "safety": {
+      "documents": 5,
+      "passages": 931,
+      "text_chars": 632253
+    }
+  },
+  "largest_documents": [
+    {
+      "document_id": "d1a:dlgs-2008-81",
+      "passages": 914
+    },
+    {
+      "document_id": "d1a:dlgs-2023-24",
+      "passages": 868
+    },
+    {
+      "document_id": "d1a:l-2017-81",
+      "passages": 853
+    },
+    {
+      "document_id": "d1a:l-2024-90",
+      "passages": 803
+    },
+    {
+      "document_id": "d1a:dlgs-2003-196",
+      "passages": 713
+    }
+  ]
+}

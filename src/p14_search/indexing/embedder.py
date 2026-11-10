@@ -34,7 +34,8 @@ class SentenceTransformerEmbedder:
             device = "cpu"
         self.name = model_name
         self.model = SentenceTransformer(model_name, device=device)
-        self.dim = self.model.get_sentence_embedding_dimension()
+        get_dim = getattr(self.model, "get_embedding_dimension", None) or self.model.get_sentence_embedding_dimension
+        self.dim = get_dim()
         self.batch_size = batch_size
         self.query_prefix, self.passage_prefix = MODEL_PREFIXES.get(model_name, ("", ""))
         self._lock = threading.Lock()
