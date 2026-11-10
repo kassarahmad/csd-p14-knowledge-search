@@ -39,6 +39,7 @@ CREATE TABLE IF NOT EXISTS document_versions (
     bytes            INTEGER NOT NULL,
     chunker_version  TEXT NOT NULL,
     text_chars       INTEGER NOT NULL,
+    status           TEXT NOT NULL CHECK (status IN ('pending','approved','superseded')),
     ingested_at      TEXT NOT NULL,
     PRIMARY KEY (document_id, document_version)
 );

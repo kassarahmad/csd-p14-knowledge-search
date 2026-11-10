@@ -55,7 +55,8 @@ torch = { index = "pytorch-cu128" }
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = ["tests"]
-addopts = "-q"
+addopts = "-q -p no:logging"
+filterwarnings = ["ignore:Payload indexes have no effect:UserWarning"]
 markers = [
     "integration: needs a running Qdrant and downloaded models",
 ]

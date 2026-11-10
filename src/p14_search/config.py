@@ -20,6 +20,14 @@ class Settings(BaseSettings):
     principals_path: Path = Path("config/principals.json")
     max_upload_mb: int = 20
     log_level: str = "INFO"
+    # Shadow mode: the display system is shown to the user; the shadow system runs on the same query and is
+    # only logged (shadow_log). Validation protocol of EVALUATION.md: display B0, shadow S2.
+    display_system: str = "S2"
+    shadow_system: str | None = "B0"
+    # insufficient_evidence thresholds (top dense cosine for S1/S2, top BM25 score for B0).
+    # 0 = never flag; calibrated on the tuning set by eval/calibrate_threshold.py.
+    ie_min_dense: float = 0.0
+    ie_min_bm25: float = 0.0
 
 
 @lru_cache
