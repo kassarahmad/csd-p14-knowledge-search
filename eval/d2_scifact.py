@@ -82,6 +82,8 @@ def evaluate(settings: Settings | None = None) -> dict:
     return {
         "dataset": "BEIR SciFact test (claims CC BY 4.0, abstracts ODC-By 1.0)",
         "level": "document",
+        "n_documents": search.store.query("SELECT COUNT(*) AS n FROM documents WHERE status = 'approved'")[0]["n"],
+        "n_test_qrels_lines": sum(len(g) for g in qrels.values()),
         "embedding_model": search.dense.embedder.name,
         "overall": per_system,
         "seconds": round(time.perf_counter() - t0, 1),

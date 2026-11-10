@@ -1,4 +1,11 @@
-# Architecture (draft)
+# Architecture
+
+Status: implemented as described (code in `src/p14_search/`). Detailed Mermaid diagrams generated from the code
+structure are in `docs/diagrams/` (01 system context, 02 components, 03 data model, 04 classes, 05 ingestion,
+06 search, 07 shadow mode, 08 integration). Mapping of the boxes below to modules: Search API -> api/app.py;
+ACL filter builder -> security/acl.py; Hybrid retrieval -> retrieval/retrievers.py; Citation builder, extractive
+summary, query log and shadow runner -> retrieval/service.py and retrieval/summary.py; Ingestion and versioning ->
+ingestion/; SQLite/FTS5 -> indexing/store.py; Qdrant -> indexing/vector_index.py.
 
 ## High-level view
 ```mermaid
@@ -33,7 +40,8 @@ Notes:
 - BM25 lives in SQLite FTS5 (ADR-004): no extra service, persistent, same database as metadata and ACL.
 - The ACL filter is built once from the principal and applied **inside** both retrievers (Qdrant payload filter, FTS5 WHERE clause), never as a post-filter, so unauthorised passages cannot influence counts or scores.
 - The shadow runner executes B0 and the candidate system on the same query, shows only B0 to the user and logs both (see EVALUATION.md).
-- Stretch components (not in the diagram): related-documents endpoint, CloudEvents publisher, local LLM summary, MCP wrapper.
+- Stretch components (not implemented): related-documents endpoint, CloudEvents publisher, local LLM summary, MCP wrapper, reranker.
+- The "shadow runner" is not a separate process: SearchService ranks with the display and the shadow system from the same retriever runs, synchronously.
 
 ## Access control model
 - `access_level` in {public, internal, restricted} plus `office`, stored per document and copied to every passage.
@@ -51,7 +59,7 @@ Notes:
 
 ## Traceability data (query_log)
 `request_id`, timestamp, pseudonymised principal, query, filters, version block (pipeline, chunker, embedding model, reranker, index snapshot), returned `passage_id`s with score and rank, `insufficient_evidence`, latency, linked feedback.
-Scores are exposed as `evidence`, not as "confidence": retrieval scores are not calibrated probabilities. Retention period and minimisation rules: see SECURITY_OVERSIGHT.md.
+Scores are exposed as `evidence`, not as "confidence": retrieval scores are not calibrated probabilities. Retention period and minimisation rules: see SECURITY_OVERSIGHT.md. Eval traffic is tagged with `X-Request-ID: eval-...`.
 
 ## Diagrams to produce
 | Diagram | Priority | Why |

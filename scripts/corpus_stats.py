@@ -13,6 +13,7 @@ from pathlib import Path
 
 from p14_search.config import get_settings
 from p14_search.indexing.store import Store, now_iso
+from p14_search.ingestion.parser import _text_quality
 
 ROOT = Path(__file__).resolve().parents[1]
 FORMAT = {
@@ -59,6 +60,12 @@ def main() -> int:
             for r in sorted(rows, key=lambda r: -r["passages"])[:5]
         ],
     }
+    # Heuristic share of passages that are not readable prose (tables, lists, garbled font pages): long passages
+    # with almost no function words. Reported in DATA.md as a data-quality indicator.
+    d1a = store.query("SELECT text FROM passages WHERE indexed = 1 AND document_id LIKE 'd1a:%'")
+    non_prose = sum(1 for r in d1a if len(r["text"]) > 200 and _text_quality(r["text"]) < 0.02)
+    out["quality"] = {"d1a_passages": len(d1a), "d1a_non_prose_passages": non_prose,
+                      "d1a_non_prose_share": round(non_prose / max(len(d1a), 1), 4)}
     path = ROOT / "eval" / "results" / "corpus_stats.json"
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(out, indent=2) + "\n", encoding="utf-8", newline="\n")

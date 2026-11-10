@@ -42,3 +42,23 @@ S1 nDCG@10 0.6450 vs 0.6036.
 Decision: intfloat/multilingual-e5-small (EMBEDDING_MODEL default).
 Consequences: only 40 tuning queries - the difference is indicative, not statistically tested; Granite stays available
 (its collection can be rebuilt with one command) for future comparison.
+
+## ADR-006 - PDF text extraction: pdfium first, pypdf fallback - 2026-11-10
+Context: real Gazzetta Ufficiale PDFs use heterogeneous fonts. pypdf alone produced glyph names ("/C76") on a 2004 issue and substitution-like garbage ("Eresidente") on a 2005 issue.
+Decision: pypdfium2 (pdfium, Chrome's PDF engine) as primary extractor; per page, if the text looks garbled (control characters or very few function words), pypdf with glyph-name repair is tried and kept only if clearly better.
+Consequences: robust and fast extraction on 6 of 7 GU PDFs; the 2004 issue remains low quality (merged words). pdfium is native code: accepted because it is heavily fuzzed; documented in the parser's safety notes. About 1.4% of D1a passages are still non-prose (tables, lists, some shifted-font pages) - see DATA.md.
+
+## ADR-007 - Human approval gate before indexing - 2026-11-10
+Context: human oversight is a cross-cutting requirement; documents carry access levels that must be right before anyone can find them.
+Decision: POST /v1/documents only parses and chunks (status pending); only POST /v1/documents/{id}/approve by an officer of that office (or admin) writes to FTS5 and Qdrant. A new version stays pending while the previous approved version remains searchable.
+Consequences: wrong access levels cannot leak before review; approval is logged (approval_log). In this prototype approvals of the corpus are SIMULATED by scripts/ingest_corpus.py and logged as such.
+
+## ADR-008 - Evaluation design: LLM-drafted queries, snippet-anchored graded qrels - 2026-11-10
+Context: no real users or annotators are available; judgments must survive re-chunking.
+Decision: an LLM drafts queries and, for each, the target document/section plus a VERBATIM answer snippet; eval/build_qrels.py derives passage-level grades (2 = contains the snippet, 1 = same section) on the current index. Test split frozen by hash before any tuning. Everything labelled llm_generated and listed for student review.
+Consequences: reproducible, chunker-independent qrels; known biases (single LLM annotator, incomplete judgments) declared in ANNOTATION_PROTOCOL.md and visible in the error analysis (category C).
+
+## ADR-009 - Qdrant addressed as 127.0.0.1 - 2026-11-10
+Context: on Windows "localhost" resolved to ::1 and the Docker Desktop port forward hung connections from Python (the first ingestion run blocked).
+Decision: default QDRANT_URL=http://127.0.0.1:6333.
+

@@ -117,3 +117,16 @@ def test_chunks_respect_sections_size_and_offsets():
     for c in chunks:  # offsets point into the parsed text (citation precision)
         assert c.text == text[c.char_start : c.char_end].strip()
     assert chunks[-1].section == "Art. 2" and chunks[-1].text == "Breve."
+
+
+def test_encrypted_pdf_is_rejected():
+    from fpdf import FPDF
+
+    pdf = FPDF()
+    pdf.set_encryption(owner_password="owner", user_password="secret")
+    pdf.add_page()
+    pdf.set_font("Helvetica", size=11)
+    pdf.cell(text="riservato")
+    with pytest.raises(ParseError) as err:
+        parse(bytes(pdf.output()), PDF, MAX)
+    assert err.value.status == 415

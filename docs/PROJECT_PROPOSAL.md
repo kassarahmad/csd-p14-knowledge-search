@@ -1,4 +1,4 @@
-# Project proposal - P14 (DRAFT)
+# Project proposal - P14
 
 Follows the shared 7-section template of the AI Puzzle framework (see COURSE_REQUIREMENTS.md).
 
@@ -38,6 +38,8 @@ Human oversight (where a person intervenes):
 Operational definitions, targets and the shadow-mode validation protocol are in docs/EVALUATION.md. They are fixed before the held-out test set is run.
 
 ## 8. Scope: MVP vs stretch goals
+Status 2026-11-10: every MVP item is implemented and tested; no stretch goal is implemented.
+
 | Item | MVP | Stretch |
 |---|---|---|
 | Ingestion (owner-approved, safe parsing, chunking) | x | |

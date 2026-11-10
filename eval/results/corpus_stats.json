@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-10T11:01:34+00:00",
+  "generated_at": "2026-11-10T11:28:31+00:00",
   "index_snapshot_id": "idx-7a7b048cd9fb6a57",
   "totals": {
     "documents": 57,
@@ -118,5 +118,10 @@
       "document_id": "d1a:dlgs-2003-196",
       "passages": 713
     }
-  ]
+  ],
+  "quality": {
+    "d1a_passages": 10561,
+    "d1a_non_prose_passages": 147,
+    "d1a_non_prose_share": 0.0139
+  }
 }

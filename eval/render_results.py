@@ -14,7 +14,7 @@ import sys
 
 from common import RESULTS, ROOT
 
-DOCS = [ROOT / "docs" / "EVALUATION.md", ROOT / "docs" / "REPORT.md"]
+DOCS = [ROOT / "docs" / "EVALUATION.md", ROOT / "docs" / "REPORT.md", ROOT / "docs" / "REPRODUCIBILITY.md"]
 SYSTEMS = ("B0", "S1", "S2")
 
 
@@ -88,7 +88,16 @@ def blocks() -> dict[str, str]:
 
     summary = table(["", "B0 BM25", "S1 dense", "S2 hybrid"],
                     [[m, *(f(o[s][m]) for s in SYSTEMS)] for m in ("ndcg@10", "recall@10", "mrr@10", "correct_source@3", "abstention_correctness")])
+    repro_path = RESULTS / "reproduce_latest.json"
+    if repro_path.exists():
+        rp = json.loads(repro_path.read_text(encoding="utf-8"))
+        repro = (f"Run started {rp['started']} (clean={rp['clean']}), total {f(rp['total_seconds'], 1)} s, ok={rp['ok']}. "
+                 "Source: `eval/results/reproduce_latest.json`.\n\n"
+                 + table(["Step", "Exit code", "Seconds"], [[s["step"], s["exit_code"], f(s["seconds"], 1)] for s in rp["steps"]]))
+    else:
+        repro = "Not run yet."
     return {
+        "REPRO": repro,
         "MAIN": src + "\n\n" + main,
         "TARGETS": targets,
         "LATENCY": latency + "\n\n" + hardware,
