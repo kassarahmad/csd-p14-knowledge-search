@@ -29,7 +29,8 @@ def main() -> None:
     out = ROOT / "contracts" / "schemas"
     out.mkdir(parents=True, exist_ok=True)
     for name in CONTRACT_MODELS:
-        (out / f"{name}.json").write_text(json.dumps(schema_for(name), indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+        (out / f"{name}.json").write_text(json.dumps(schema_for(name), indent=2, ensure_ascii=False) + "\n", encoding="utf-8", newline="
+")
         print(f"schema  contracts/schemas/{name}.json")
 
     if args.openapi:
@@ -39,7 +40,8 @@ def main() -> None:
         spec = create_app(Settings(_env_file=None), init_services=False).openapi()
         path = ROOT / "contracts" / "openapi" / "p14-search.yaml"
         path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(yaml.safe_dump(spec, sort_keys=False, allow_unicode=True), encoding="utf-8")
+        path.write_text(yaml.safe_dump(spec, sort_keys=False, allow_unicode=True), encoding="utf-8", newline="
+")
         print(f"openapi {path.relative_to(ROOT)}")
 
 
