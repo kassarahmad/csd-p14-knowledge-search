@@ -11,6 +11,34 @@ evidence is weak it says so (`insufficient_evidence`) instead of guessing.
 The case study is a fictional Italian public body, **Ente Demo**: 32 real Italian official acts (Normattiva,
 Gazzetta Ufficiale) plus 25 **synthetic** internal documents, labelled as such in every file.
 
+## Deliverables
+| What | File |
+|---|---|
+| Technical report (17 pages) | [deliverables/P14_Technical_Report_Ahmad_Kassar.pdf](deliverables/P14_Technical_Report_Ahmad_Kassar.pdf) |
+| Presentation (16 slides, with speaker notes) | [PowerPoint](deliverables/P14_Presentation_Ahmad_Kassar.pptx) · [PDF](deliverables/P14_Presentation_Ahmad_Kassar.pdf) |
+| Report in Markdown | [docs/REPORT.md](docs/REPORT.md) |
+| The 8 common deliverables of the AI Puzzle, mapped to files | [docs/DELIVERABLES_CHECKLIST.md](docs/DELIVERABLES_CHECKLIST.md) |
+
+## At a glance
+| | |
+|---|---|
+| **Problem** | Users ask with everyday words, documents use legal language: keyword search misses the answer |
+| **Solution** | Hybrid search (BM25 + multilingual embeddings), permission filter inside retrieval, citations on every passage |
+| **Main result** | nDCG@10 **0.60** for hybrid vs **0.45** for keyword search (p = 0.0001) on a test set frozen before tuning |
+| **Biggest win** | Paraphrased questions: **0.47** (semantic) vs **0.16** (keyword) |
+| **Safety** | **0** permission leaks in 18,576 checks; median response time about 47 ms |
+| **Honest miss** | Own target "correct source in top 3 ≥ 80%" not met: **76.7%** |
+
+![Main results](docs/images/chart_overall.png)
+
+### Where P14 sits in the AI Puzzle
+The course framework describes 26 AI projects that are useful on their own and can be connected in a final
+composition phase. P14 is a hub: **P11, P15 and P25** can send it documents to index, and **P24, P12, P15 and P25**
+can use its search. In this repository **P24 and P12 are implemented as working mock consumers**; the other
+connections are documented in [docs/INTEGRATION.md](docs/INTEGRATION.md).
+
+![System context](docs/images/01-system-context.png)
+
 ---
 
 ## Contents
@@ -64,6 +92,20 @@ One FastAPI service, one Qdrant container, one SQLite file. No paid services, ev
 ```
 Details: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md); diagrams (Mermaid) in [docs/diagrams/](docs/diagrams/);
 design decisions in [docs/DECISIONS.md](docs/DECISIONS.md) (ADR-001 to ADR-009).
+
+**How a search works** (permission filter inside both retrievers, fusion, citations, evidence check, logging):
+
+![Search sequence](docs/images/06-sequence-search.png)
+
+<details>
+<summary>More diagrams: components, ingestion with owner approval, classes, integration</summary>
+
+![Components](docs/images/02-component.png)
+![Ingestion sequence](docs/images/05-sequence-ingestion.png)
+![Class diagram](docs/images/04-class.png)
+![Integration](docs/images/08-integration.png)
+
+</details>
 
 ## 3. Requirements
 | What | Version / note |
@@ -126,6 +168,10 @@ To stop: `Ctrl+C` in the API and demo windows, then `docker compose stop`.
 citations. Ask *"budget formazione 2026"* as `employee`, then as `hr-officer`: the restricted budget appears only
 for HR. As `p24-external-assistant` only public content is visible.
 
+| Answer with its source | Same question, HR officer sees the restricted budget | Out-of-scope question: no guessing |
+|---|---|---|
+| ![Search](docs/evidence/ui_01_search_employee.png) | ![HR officer](docs/evidence/ui_03_acl_hr_officer.png) | ![Insufficient evidence](docs/evidence/ui_04_insufficient_evidence.png) |
+
 **API.** Every request carries an `X-API-Key` header. Demo keys (from `.env.example`):
 
 | Principal | Key | Sees |
@@ -181,6 +227,8 @@ Held-out test split: 60 answerable and 10 out-of-scope queries. B0 = BM25 baseli
 - Own target "correct source in top 3 >= 80%" **not met** (76.7%); causes in the error analysis.
 - SciFact sanity check: nDCG@10 0.631 (B0), 0.659 (S1), 0.686 (S2).
 
+![Results by query type](docs/images/chart_bytype.png)
+
 Full tables, statistics and error analysis: [docs/EVALUATION.md](docs/EVALUATION.md).
 
 ## 9. Repository structure
@@ -193,6 +241,7 @@ src/p14_search/          application code
   security/              principals (API keys) and access-control filters
   evaluation/            metrics and evaluation runner
   observability/         structured JSON logging
+deliverables/            technical report (PDF) and presentation (PPTX, PDF)
 frontend/app.py          Streamlit demo
 mocks/                   P24 and P12 mock consumers
 contracts/               OpenAPI, JSON Schemas, real examples
