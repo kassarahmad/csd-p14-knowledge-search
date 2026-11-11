@@ -1,0 +1,46 @@
+%% Components (modules in src/p14_search) of the single FastAPI service.
+flowchart TB
+    subgraph api[api/app.py]
+        routes[Endpoints /v1/*<br/>RFC 9457 errors]
+        auth[X-API-Key -> Principal]
+        mw[Request-id + JSON log middleware]
+    end
+    subgraph security[security/]
+        reg[principals.py<br/>PrincipalRegistry]
+        acl[acl.py<br/>SQL clause + Qdrant filter]
+    end
+    subgraph ingestion[ingestion/]
+        parser[parser.py<br/>safe PDF/DOCX/HTML/TXT]
+        chunker[chunker.py<br/>passages + persistent ids]
+        ingsvc[service.py<br/>ingest -> pending, approve -> index]
+    end
+    subgraph indexing[indexing/]
+        store[(store.py<br/>SQLite + FTS5)]
+        emb[embedder.py<br/>multilingual-e5-small]
+        vidx[(vector_index.py<br/>Qdrant collection)]
+    end
+    subgraph retrieval[retrieval/]
+        bm25[BM25Retriever - B0]
+        dense[DenseRetriever - S1]
+        rrf[rrf_fuse - S2]
+        searchsvc[service.py<br/>evidence, citations, insufficient_evidence,<br/>query_log, shadow_log]
+        summ[summary.py<br/>extractive]
+    end
+    obs[observability/logging.py]
+
+    routes --> auth --> reg
+    routes --> ingsvc --> parser
+    ingsvc --> chunker
+    ingsvc --> emb
+    ingsvc --> store
+    ingsvc --> vidx
+    routes --> searchsvc
+    searchsvc --> bm25 --> store
+    searchsvc --> dense --> vidx
+    dense --> emb
+    searchsvc --> rrf
+    searchsvc --> summ
+    bm25 --> acl
+    dense --> acl
+    searchsvc --> store
+    mw --> obs

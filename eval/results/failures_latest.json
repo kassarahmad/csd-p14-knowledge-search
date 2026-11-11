@@ -1,0 +1,917 @@
+{
+  "n": 20,
+  "failures": [
+    {
+      "qid": "Q004",
+      "system": "S2",
+      "query": "Chi lavora da casa viene pagato meno dei colleghi in ufficio?",
+      "type": "paraphrase",
+      "lang": "it",
+      "reasons": [
+        "no_correct_source_in_top3",
+        "answer_passage_not_in_top10",
+        "false_insufficient_evidence"
+      ],
+      "targets": [
+        {
+          "document_id": "d1a:l-2017-81",
+          "section": "Art. 20",
+          "snippet": "trattamento economico e normativo non inferiore a quello complessivamente applicato"
+        }
+      ],
+      "top_dense": 0.8308096,
+      "top_bm25": 13.623604656332963,
+      "top3": [
+        {
+          "passage_id": "p_7e91137f0a6278932c990cb1dad15dc4",
+          "document_id": "d1a:dlgs-2001-151",
+          "section": "Art. 61 - Lavoro a domicilio ( legge 30 dicembre 1971, n. 1204, articoli 1 , 13 , 18 , 22 ; legge 8 marzo 2000, n. 53, art. 3 )",
+          "page": null,
+          "text": "4. Per i settori di lavoro a domicilio per i quali non esistono corrispondenti industrie che occupano lavoratori interni, con apposito decreto del Ministro per il lavoro e la previdenza sociale, sentite le organizzazioni",
+          "grade": 0
+        },
+        {
+          "passage_id": "p_fb8542c662605fa668ffacf6776a0592",
+          "document_id": "d1a:l-2004-4",
+          "section": null,
+          "page": 12,
+          "text": "4.Ciascunaamministrazione,secondoilproprioordinamento, individual'ufficiocompetenteperiprocedimentidisciplinari.Tale ufficio,susegnalazionedelcapodellastrutturaincuiildipendente lavora,contestal'addebitoaldipendentemedes",
+          "grade": 0
+        },
+        {
+          "passage_id": "p_1c96abbe9915097b2d676a4cbd653054",
+          "document_id": "d1a:dpr-2005-68",
+          "section": "Art. 4",
+          "page": 49,
+          "text": "Validita' dell’assicurazione 1. L’assicurazione e' prestata senza limiti di eta' ed e' valida per il mondo intero, a condizione che le attivita' sportive o le funzioni di cui al comma 1 dell’art. 3 del presente decreto s",
+          "grade": 0
+        }
+      ]
+    },
+    {
+      "qid": "Q013",
+      "system": "S2",
+      "query": "Prima di respingere la mia domanda l'amministrazione deve avvisarmi?",
+      "type": "paraphrase",
+      "lang": "it",
+      "reasons": [
+        "no_correct_source_in_top3",
+        "answer_passage_not_in_top10"
+      ],
+      "targets": [
+        {
+          "document_id": "d1a:l-1990-241",
+          "section": "Art. 10-bis",
+          "snippet": "comunica tempestivamente agli istanti i motivi che ostano all'accoglimento della domanda"
+        }
+      ],
+      "top_dense": 0.8596139,
+      "top_bm25": 14.280633190654228,
+      "top3": [
+        {
+          "passage_id": "p_aab3e919892a3a9e8362ee9b7c6687a4",
+          "document_id": "d1a:dpr-1994-487",
+          "section": "Art. 3 - (( (Bando di concorso). ))",
+          "page": null,
+          "text": "amministrazione, inoltre, deve garantire un servizio di assistenza di tipo informatico legato alla procedura di presentazione della domanda. Nei casi di cui al primo periodo l'amministrazione pubblica sul sito istituzion",
+          "grade": 0
+        },
+        {
+          "passage_id": "p_5994cf1ef834f2f6748af0765fb56970",
+          "document_id": "d1a:l-1990-241",
+          "section": "AGGIORNAMENTO (1a)",
+          "page": null,
+          "text": "Il D.P.R. 26 aprile 1992, n. 300 ha disposto:\n\n(con l'art. 3, comma 1) che il termine di cui al comma 2, del presente articolo decorre dalla data di ricevimento della denuncia o della domanda del privato.\n\n(con l'art. 3,",
+          "grade": 0
+        },
+        {
+          "passage_id": "p_bdaf54b6e45e02cb3ce185711ae090ef",
+          "document_id": "d1a:l-1990-241",
+          "section": "AGGIORNAMENTO (1a)",
+          "page": null,
+          "text": "Il D.P.R. 26 aprile 1992, n. 300 ha disposto: (con l'art. 3, comma 1) che il termine di cui al comma 2, del presente articolo decorre dalla data di ricevimento della denuncia o della domanda del privato. (con l'art. 3, c",
+          "grade": 0
+        }
+      ]
+    },
+    {
+      "qid": "Q015",
+      "system": "S2",
+      "query": "Posso chiedere dati a un ente pubblico senza spiegare perché?",
+      "type": "conceptual",
+      "lang": "it",
+      "reasons": [
+        "no_correct_source_in_top3"
+      ],
+      "targets": [
+        {
+          "document_id": "d1a:dlgs-2013-33",
+          "section": "Art. 5",
+          "snippet": "chiunque ha diritto di accedere ai dati e ai documenti detenuti dalle pubbliche amministrazioni"
+        },
+        {
+          "document_id": "d1b:faq-accesso-atti",
+          "section": "Che differenza c'è tra accesso documentale e accesso civico?",
+          "snippet": "senza motivare la richiesta"
+        }
+      ],
+      "top_dense": 0.8591311,
+      "top_bm25": 15.637668229531156,
+      "top3": [
+        {
+          "passage_id": "p_d58e71e1f1aa55af56987078f64e300a",
+          "document_id": "d1b:informativa-privacy-utenti",
+          "section": "Diritti dell'interessato",
+          "page": null,
+          "text": "L'interessato può chiedere l'accesso ai propri dati, la rettifica, la cancellazione nei casi previsti, la limitazione del trattamento e può opporsi al trattamento. Può inoltre proporre reclamo al Garante per la protezion",
+          "grade": 0
+        },
+        {
+          "passage_id": "p_0af838b22dcd101d30afebb2848a0e86",
+          "document_id": "d1a:dlgs-2003-196",
+          "section": "Art. 175 - (Forze di polizia)",
+          "page": null,
+          "text": "della sicurezza pubblica o di prevenzione e repressione della criminalità, dandone informazione al Garante per la protezione dei dati personali. 5. Chiunque viene a conoscenza dell'esistenza di dati personali che lo rigu",
+          "grade": 0
+        },
+        {
+          "passage_id": "p_dba2c14525cf937d449acde507a8ef1f",
+          "document_id": "d1a:dlgs-2013-33",
+          "section": "Art. 22 - Obblighi di pubblicazione dei dati relativi agli enti pubblici vigilati, e agli enti di diritto privato in controllo pubblico, nonché alle partecipazioni in società di diritto privato.",
+          "page": null,
+          "text": "1.\n\n((Fermo restando quanto previsto dall'articolo 9-bis, ciascuna amministrazione))\n\npubblica e aggiorna annualmente:\n\na) l'elenco degli enti pubblici, comunque denominati, istituiti, vigilati\n\n((o finanziati dall'ammin",
+          "grade": 0
+        }
+      ]
+    },
+    {
+      "qid": "Q019",
+      "system": "S2",
+      "query": "Possono punirmi se denuncio un illecito che ho visto nel mio ufficio?",
+      "type": "conceptual",
+      "lang": "it",
+      "reasons": [
+        "no_correct_source_in_top3",
+        "answer_passage_not_in_top10"
+      ],
+      "targets": [
+        {
+          "document_id": "d1a:dlgs-2023-24",
+          "section": "Art. 17",
+          "snippet": "non possono subire alcuna ritorsione"
+        },
+        {
+          "document_id": "d1b:guida-whistleblowing",
+          "section": null,
+          "snippet": "Sono vietati gli atti ritorsivi nei confronti del segnalante"
+        }
+      ],
+      "top_dense": 0.85803634,
+      "top_bm25": 12.774959299339578,
+      "top3": [
+        {
+          "passage_id": "p_4a468acd7526e76d1436cb88fb5a33af",
+          "document_id": "d1a:dlgs-2001-165",
+          "section": "Art. 55-bis - (Forme e termini del procedimento disciplinare).",
+          "page": null,
+          "text": "((l'Ufficio per i procedimenti disciplinari può acquisire da altre amministrazioni pubbliche))\n\ninformazioni o documenti rilevanti per la definizione del procedimento. La predetta attività istruttoria non determina la so",
+          "grade": 0
+        },
+        {
+          "passage_id": "p_a9d2d34ef97a136be6303f12e494f999",
+          "document_id": "d1a:dlgs-2003-196",
+          "section": "Art. 167 - (Trattamento illecito di dati)",
+          "page": null,
+          "text": "6. Quando per lo stesso fatto è stata applicata a norma del presente codice o del Regolamento a carico dell'imputato o dell'ente una sanzione amministrativa pecuniaria dal Garante e questa è stata riscossa, la pena è dim",
+          "grade": 0
+        },
+        {
+          "passage_id": "p_8d0d4d9fa8a4b3ab5268343e03aa8c7d",
+          "document_id": "d1a:dlgs-2001-165",
+          "section": "Art. 55-quater - (Licenziamento disciplinare).",
+          "page": null,
+          "text": "((98))\n\n3-quinquies. Nei casi di cui al comma 3-bis, per i dirigenti che abbiano acquisito conoscenza del fatto, ovvero, negli enti privi di qualifica dirigenziale, per i responsabili di servizio competenti, l'omessa att",
+          "grade": 0
+        }
+      ]
+    },
+    {
+      "qid": "Q021",
+      "system": "S2",
+      "query": "Si può essere licenziati per aver timbrato il cartellino al posto di un collega?",
+      "type": "paraphrase",
+      "lang": "it",
+      "reasons": [
+        "no_correct_source_in_top3",
+        "answer_passage_not_in_top10"
+      ],
+      "targets": [
+        {
+          "document_id": "d1a:dlgs-2001-165",
+          "section": "Art. 55-quater",
+          "snippet": "falsa attestazione della presenza in servizio, mediante l'alterazione dei sistemi di rilevamento della presenza"
+        }
+      ],
+      "top_dense": 0.8627597,
+      "top_bm25": 15.632101525762769,
+      "top3": [
+        {
+          "passage_id": "p_583d6e87826cdf18f4a04950f42bfd9b",
+          "document_id": "d1a:dlgs-2008-81",
+          "section": "Art. 306 - Disposizioni finali",
+          "page": null,
+          "text": "sono percorribili senza pericolo, devono essere sbarrate. 1.4.16.2. Apposito cartello deve essere posto ad indicare il divieto di transito. 1.4.17. Durante l'esecuzione di lavoro di riparazione o manutenzione su linee di",
+          "grade": 0
+        },
+        {
+          "passage_id": "p_ddc47bd82994b2efac82593e8b1b00fb",
+          "document_id": "d1a:l-1970-300",
+          "section": "Art. 13 - (Mansioni del lavoratore)",
+          "page": null,
+          "text": "L' articolo 2103 del codice civile è sostituito dal seguente: \"Il prestatore di lavoro deve essere adibito alle mansioni per le quali è stato assunto o a quelle corrispondenti alla categoria superiore che abbia successiv",
+          "grade": 0
+        },
+        {
+          "passage_id": "p_1e9d44e842daf567c5869287c271b375",
+          "document_id": "d1a:l-1970-300",
+          "section": "Art. 18 - Tutela del lavoratore in caso di licenziamento illegittimo",
+          "page": null,
+          "text": "quando ritenga irrilevanti o insufficienti gli elementi di prova forniti dal datore di lavoro, la reintegrazione del lavoratore nel posto di lavoro. L'ordinanza di cui al comma precedente può essere impugnata con reclamo",
+          "grade": 0
+        }
+      ]
+    },
+    {
+      "qid": "Q022",
+      "system": "S2",
+      "query": "domicilio digitale definizione",
+      "type": "keyword",
+      "lang": "it",
+      "reasons": [
+        "no_correct_source_in_top3",
+        "answer_passage_not_in_top10"
+      ],
+      "targets": [
+        {
+          "document_id": "d1a:dlgs-2005-82",
+          "section": "Art. 1",
+          "snippet": "domicilio digitale: un indirizzo elettronico eletto presso un servizio di posta elettronica certificata"
+        }
+      ],
+      "top_dense": 0.8851103,
+      "top_bm25": 13.778914836570717,
+      "top3": [
+        {
+          "passage_id": "p_a399c06512a30dd6842f5929be6debe0",
+          "document_id": "d1a:dlgs-2005-82",
+          "section": "Art. 3-bis - Identità digitale e Domicilio digitale",
+          "page": null,
+          "text": "1-ter. I domicili digitali di cui ai commi 1, 1-bis e 4-quinquies sono eletti secondo le modalità stabilite con le Linee guida. Le persone fisiche possono altresì eleggere il domicilio digitale avvalendosi del servizio d",
+          "grade": 0
+        },
+        {
+          "passage_id": "p_1dd7191d7273ed295d0ff69a88972f0b",
+          "document_id": "d1a:dlgs-2005-82",
+          "section": "Art. 6 - ((Utilizzo del domicilio digitale))",
+          "page": null,
+          "text": "al domicilio digitale del destinatario, salva la prova che la mancata consegna sia dovuta a fatto non imputabile al destinatario medesimo. La data e l'ora di trasmissione e ricezione del documento informatico sono opponi",
+          "grade": 0
+        },
+        {
+          "passage_id": "p_afa972348ce5f2b2918f4dd4621253eb",
+          "document_id": "d1a:dlgs-2005-82",
+          "section": "Art. 3-bis - Identità digitale e Domicilio digitale",
+          "page": null,
+          "text": "4-quinquies. È possibile eleggere anche un domicilio digitale speciale per determinati atti, procedimenti o affari. In tal caso, ferma restando la validità ai fini delle comunicazioni elettroniche aventi valore legale, c",
+          "grade": 0
+        }
+      ]
+    },
+    {
+      "qid": "Q023",
+      "system": "S2",
+      "query": "Il datore di lavoro può installare telecamere per controllare i dipendenti?",
+      "type": "paraphrase",
+      "lang": "it",
+      "reasons": [
+        "no_correct_source_in_top3",
+        "answer_passage_not_in_top10"
+      ],
+      "targets": [
+        {
+          "document_id": "d1a:l-1970-300",
+          "section": "Art. 4",
+          "snippet": "possibilità di controllo a distanza dell'attività dei lavoratori possono essere impiegati esclusivamente per esigenze organizzative e produttive"
+        }
+      ],
+      "top_dense": 0.85338926,
+      "top_bm25": 14.090152448915774,
+      "top3": [
+        {
+          "passage_id": "p_440d786b60f6cd276688d23bb6a58b2a",
+          "document_id": "d1a:l-1970-300",
+          "section": "Art. 5 - (Accertamenti sanitari)",
+          "page": null,
+          "text": "Sono vietati accertamenti da parte del datore di lavoro sulla idoneità e sulla infermità per malattia o infortunio del lavoratore dipendente. Il controllo delle assenze per infermità può essere effettuato soltanto attrav",
+          "grade": 0
+        },
+        {
+          "passage_id": "p_d834ee182a5c71a1de3cec0cd3ab047e",
+          "document_id": "d1b:policy-strumenti-informatici",
+          "section": null,
+          "page": 1,
+          "text": "Software È consentito installare solo software presente nel catalogo approvato dall'Ufficio Transizione Digitale. L'uso di servizi cloud esterni o di strumenti di intelligenza artificiale generativa per elaborare documen",
+          "grade": 0
+        },
+        {
+          "passage_id": "p_8c8c09a5b3106bfd0a81d4f0c3aa37b0",
+          "document_id": "d1a:dlgs-2008-81",
+          "section": "Art. 210 - (( (Disposizioni miranti ad eliminare o ridurre i rischi). ))",
+          "page": null,
+          "text": "c) delle misure tecniche per ridurre l'emissione dei campi elettromagnetici, incluso se necessario l'uso di dispositivi di sicurezza, schermature o di analoghi meccanismi di protezione della salute;\n\nd) degli appropriati",
+          "grade": 0
+        }
+      ]
+    },
+    {
+      "qid": "Q028",
+      "system": "S2",
+      "query": "segnalazione incidenti informatici entro 24 ore",
+      "type": "keyword",
+      "lang": "it",
+      "reasons": [
+        "no_correct_source_in_top3"
+      ],
+      "targets": [
+        {
+          "document_id": "d1a:l-2024-90",
+          "section": "Art. 1",
+          "snippet": "entro il termine massimo di ventiquattro ore dal momento in cui ne sono venuti a conoscenza"
+        },
+        {
+          "document_id": "d1a:dlgs-2024-138",
+          "section": "Art. 25",
+          "snippet": "entro 24 ore da quando sono venuti a conoscenza dell'incidente significativo, una pre-notifica"
+        }
+      ],
+      "top_dense": 0.90190154,
+      "top_bm25": 24.032710366961005,
+      "top3": [
+        {
+          "passage_id": "p_e65bee9e38f7c6b14abe8387ad983134",
+          "document_id": "d1a:l-2024-90",
+          "section": "Art. 24",
+          "page": 13,
+          "text": "3 -bis . Al di fuori dei casi di cui al comma 3, i soggetti di cui al comma 2 -bis notificano gli incidenti di cui all’articolo 1, comma 1, lettera h) , del regolamento di cui al decreto del Presidente del Consiglio dei ",
+          "grade": 0
+        },
+        {
+          "passage_id": "p_b1cd15cd62707928ebc5c3b4e45ecf52",
+          "document_id": "d1b:procedura-infortuni",
+          "section": "Segnalazione interna",
+          "page": null,
+          "text": "Entro 24 ore dall'evento il lavoratore, o il dirigente in sua vece, compila il modulo \"Segnalazione infortunio\" disponibile nella intranet e lo invia al Servizio di Prevenzione e Protezione e all'Ufficio Personale, alleg",
+          "grade": 0
+        },
+        {
+          "passage_id": "p_51967ca9235242a7939b269e5e0f1fa1",
+          "document_id": "d1a:l-2024-90",
+          "section": "Art. 24",
+          "page": 13,
+          "text": "al presente comma senza ritardo, comunque entro il termine massimo di ventiquattro ore, e ad effettuare la relativa notifica entro settantadue ore . Si applicano, altresì, le disposizioni di cui all’articolo 4, commi 2 e",
+          "grade": 0
+        }
+      ]
+    },
+    {
+      "qid": "Q030",
+      "system": "S2",
+      "query": "Chi sceglie il responsabile anticorruzione di un ente pubblico?",
+      "type": "paraphrase",
+      "lang": "it",
+      "reasons": [
+        "no_correct_source_in_top3"
+      ],
+      "targets": [
+        {
+          "document_id": "d1a:l-2012-190",
+          "section": "Art. 1",
+          "snippet": "L'organo di indirizzo individua, di norma tra i dirigenti di ruolo in servizio, il Responsabile della prevenzione della corruzione e della trasparenza"
+        }
+      ],
+      "top_dense": 0.8781573,
+      "top_bm25": 23.062055235862747,
+      "top3": [
+        {
+          "passage_id": "p_5b031a1d03c6dfa13561964fcf6202f7",
+          "document_id": "d1a:dlgs-2013-39",
+          "section": "Art. 15",
+          "page": null,
+          "text": "Vigilanza sul rispetto delle disposizioni in materia di inconferibilità e incompatibilità nelle pubbliche amministrazioni e negli enti di diritto privato in controllo pubblico\n\n1. Il responsabile del piano anticorruzione",
+          "grade": 0
+        },
+        {
+          "passage_id": "p_35aaf36f54283904e64b10af19a6be7c",
+          "document_id": "d1a:dlgs-2013-39",
+          "section": "Vigilanza dell'Autorità nazionale anticorruzione",
+          "page": null,
+          "text": "1. L'Autorità nazionale anticorruzione vigila sul rispetto, da parte delle amministrazioni pubbliche, degli enti pubblici e degli enti di diritto privato in controllo pubblico, delle disposizioni di cui al presente decre",
+          "grade": 0
+        },
+        {
+          "passage_id": "p_6d70549aa9c575861bd5d097fb3ab76e",
+          "document_id": "d1a:dlgs-2013-39",
+          "section": "Art. 15",
+          "page": null,
+          "text": "2. Il responsabile segnala i casi di possibile violazione delle disposizioni del presente decreto all'Autorità nazionale anticorruzione, all'Autorità garante della concorrenza e del mercato ai fini dell'esercizio delle f",
+          "grade": 0
+        }
+      ]
+    },
+    {
+      "qid": "Q036",
+      "system": "S2",
+      "query": "Posso consultare un documento chiedendolo a voce allo sportello, senza domanda scritta?",
+      "type": "paraphrase",
+      "lang": "it",
+      "reasons": [
+        "no_correct_source_in_top3"
+      ],
+      "targets": [
+        {
+          "document_id": "d1a:dpr-2006-184",
+          "section": "Accesso informale",
+          "snippet": "può essere esercitato in via informale mediante richiesta, anche verbale"
+        }
+      ],
+      "top_dense": 0.8444754,
+      "top_bm25": 14.754653291787339,
+      "top3": [
+        {
+          "passage_id": "p_cdca208b5e5df9ff6364196cbda857a0",
+          "document_id": "d1a:dpr-2000-445",
+          "section": "Art. 43-bis - (( (Certificazione e documentazione d'impresa). ))",
+          "page": null,
+          "text": "2. Le comunicazioni tra lo sportello unico per le attività produttive, le amministrazioni pubbliche, le camere di commercio, industria, artigianato e agricoltura, le imprese e le agenzie per le imprese avvengono esclusiv",
+          "grade": 0
+        },
+        {
+          "passage_id": "p_5bcfab076410904943ee38d1e0b6f58e",
+          "document_id": "d1a:dpr-2000-445",
+          "section": "Art. 43 - (L-R) Accertamenti d'Ufficio",
+          "page": null,
+          "text": "6. I documenti trasmessi da chiunque ad una pubblica amministrazione tramite fax, o con altro mezzo telematico o informatico idoneo ad accertarne la fonte di provenienza, soddisfano il requisito della forma scritta e la ",
+          "grade": 0
+        },
+        {
+          "passage_id": "p_b2ff19893037e8b6f661121cc8ebc735",
+          "document_id": "d1a:dpr-2000-445",
+          "section": "Art. 43-bis - (( (Certificazione e documentazione d'impresa). ))",
+          "page": null,
+          "text": "((\n\n1. Lo sportello unico per le attività produttive:\n\na) trasmette alle altre amministrazioni pubbliche coinvolte nel procedimento le comunicazioni e i documenti attestanti atti, fatti, qualità, stati soggettivi, nonché",
+          "grade": 0
+        }
+      ]
+    },
+    {
+      "qid": "Q038",
+      "system": "S2",
+      "query": "Can I work remotely from another country?",
+      "type": "paraphrase",
+      "lang": "en",
+      "reasons": [
+        "false_insufficient_evidence"
+      ],
+      "targets": [
+        {
+          "document_id": "d1b:regolamento-lavoro-agile",
+          "section": "Articolo 5",
+          "snippet": "Non è consentito svolgere il lavoro agile al di fuori del territorio nazionale"
+        },
+        {
+          "document_id": "d1b:faq-lavoro-agile",
+          "section": "Posso lavorare in modalità agile da una casa al mare?",
+          "snippet": "non consente di lavorare in modalità agile dall'estero"
+        }
+      ],
+      "top_dense": 0.83664757,
+      "top_bm25": 8.153568699913148,
+      "top3": [
+        {
+          "passage_id": "p_2aedbc9f60500d8591ca1e4cd182713d",
+          "document_id": "d1a:l-2017-81",
+          "section": "Art. 2",
+          "page": 64,
+          "text": "A.R.L.\" GRUMO NEVANO (NA) CAMPANIA 04926870637 5 DATA & WORK SOCIETA' COOPERATIVA IN LIQUIDAZIONE NOLA (NA) CAMPANIA 04462331218 6 C.S.M. SOCIETA' COOPERATIVA SAN GIORGIO A CREMANO (NA) CAMPANIA 05521601210 7 COOPERATIVA",
+          "grade": 0
+        },
+        {
+          "passage_id": "p_5d28bcd70d7c58a1cf4985717c2f2172",
+          "document_id": "d1b:faq-lavoro-agile",
+          "section": "Posso lavorare in modalità agile da una casa al mare?",
+          "page": null,
+          "text": "Sì, se il luogo è idoneo sotto il profilo della sicurezza e della riservatezza e si trova in Italia. Il regolamento interno non consente di lavorare in modalità agile dall'estero.",
+          "grade": 2
+        },
+        {
+          "passage_id": "p_0a332cd635c4dbb2a6d21e6f986e8928",
+          "document_id": "d1a:dlgs-2022-104",
+          "section": "Art. 4 - Modifiche al decreto legislativo 26 maggio 1997, n. 152",
+          "page": null,
+          "text": "Stato membro ospitante; f) le eventuali indennità specifiche per il distacco e le modalità di rimborso delle spese di viaggio, vitto e alloggio; g) l'indirizzo del sito internet istituzionale dello Stato membro ospitante",
+          "grade": 0
+        }
+      ]
+    },
+    {
+      "qid": "Q041",
+      "system": "S2",
+      "query": "A che ora si esce dall'ufficio in agosto?",
+      "type": "paraphrase",
+      "lang": "it",
+      "reasons": [
+        "no_correct_source_in_top3",
+        "answer_passage_not_in_top10"
+      ],
+      "targets": [
+        {
+          "document_id": "d1b:circolare-2026-03-orario-estivo",
+          "section": "Orario",
+          "snippet": "orario continuato dalle 7:30 alle 14:00"
+        }
+      ],
+      "top_dense": 0.86059123,
+      "top_bm25": 8.615297154425114,
+      "top3": [
+        {
+          "passage_id": "p_3c8372cd69203d4de23b6f5026c8c6ae",
+          "document_id": "d1a:l-1990-241",
+          "section": "AGGIORNAMENTO (41)",
+          "page": null,
+          "text": "b) i provvedimenti amministrativi illegittimi ai sensi dell'art. 21-octies della legge 7 agosto 1990, n. 241, adottati in relazione all'emergenza Covid-19, possono essere annullati d'ufficio, sussistendone le ragioni di ",
+          "grade": 0
+        },
+        {
+          "passage_id": "p_8d9cabe58e5063f8e24fb889020f1c7a",
+          "document_id": "d1a:l-1990-241",
+          "section": "Art. 28",
+          "page": null,
+          "text": "(( (Modifica dell'articolo 15 del testo unico di cui al decreto del Presidente della Repubblica 10 gennaio 1957, n. 3, in materia di segreto di ufficio) ))\n\n1. L'articolo 15 del testo unico delle disposizioni concernenti",
+          "grade": 0
+        },
+        {
+          "passage_id": "p_0709fe2947d82172e7c659f08aa37bb0",
+          "document_id": "d1b:circolare-2026-03-orario-estivo",
+          "section": "Chiusura estiva",
+          "page": null,
+          "text": "Gli uffici resteranno chiusi il 14 agosto 2026. Per tale giornata i dipendenti utilizzeranno un giorno di ferie o di recupero.",
+          "grade": 0
+        }
+      ]
+    },
+    {
+      "qid": "Q047",
+      "system": "S2",
+      "query": "Entro quanto viene registrata una lettera arrivata all'ente?",
+      "type": "paraphrase",
+      "lang": "it",
+      "reasons": [
+        "no_correct_source_in_top3",
+        "answer_passage_not_in_top10"
+      ],
+      "targets": [
+        {
+          "document_id": "d1b:procedura-protocollo-pec",
+          "section": "Tempi di registrazione",
+          "snippet": "protocollati entro la giornata lavorativa successiva"
+        }
+      ],
+      "top_dense": 0.8498558,
+      "top_bm25": 12.67090742428174,
+      "top3": [
+        {
+          "passage_id": "p_dcc8de2d93f6bcfe80bb0a920f4db359",
+          "document_id": "d1b:carta-servizi",
+          "section": null,
+          "page": 1,
+          "text": "- Rilascio di certificazioni e attestazioni: entro 10 giorni lavorativi. - Conclusione dei procedimenti su istanza di parte: entro 30 giorni, salvo termini diversi previsti dalla legge. - Tempo massimo di attesa allo spo",
+          "grade": 0
+        },
+        {
+          "passage_id": "p_72bcda39fa3faf9e0efc17c0ede52525",
+          "document_id": "d1b:faq-accesso-atti",
+          "section": "Quanto tempo ha l'Ente per rispondere?",
+          "page": null,
+          "text": "Il procedimento si conclude entro 30 giorni dalla presentazione della richiesta. Se sono individuati controinteressati, il termine resta sospeso per il tempo necessario a raccogliere la loro eventuale opposizione.",
+          "grade": 0
+        },
+        {
+          "passage_id": "p_170bf76536b3613d754e0ce76f4e8846",
+          "document_id": "d1a:dpr-2000-445",
+          "section": "Art. 53 - (R) Registrazione di protocollo",
+          "page": null,
+          "text": "1. La registrazione di protocollo per ogni documento ricevuto o spedito dalle pubbliche amministrazioni è effettuata mediante la memorizzazione delle seguenti informazioni:\n\na) numero di protocollo del documento generato",
+          "grade": 0
+        }
+      ]
+    },
+    {
+      "qid": "Q049",
+      "system": "S2",
+      "query": "Ho inviato per sbaglio un file con dati personali all'indirizzo sbagliato: cosa devo fare?",
+      "type": "paraphrase",
+      "lang": "it",
+      "reasons": [
+        "no_correct_source_in_top3"
+      ],
+      "targets": [
+        {
+          "document_id": "d1b:procedura-data-breach",
+          "section": "Segnalazione interna",
+          "snippet": "la segnala immediatamente, e comunque entro 24 ore, al DPO"
+        }
+      ],
+      "top_dense": 0.84695303,
+      "top_bm25": 18.829909223089366,
+      "top3": [
+        {
+          "passage_id": "p_4d168477ba99ee2e8e37c56889a05aa2",
+          "document_id": "d1b:procedura-data-breach",
+          "section": "Che cos'è una violazione dei dati personali",
+          "page": null,
+          "text": "È una violazione di sicurezza che comporta, accidentalmente o in modo illecito, la distruzione, la perdita, la modifica, la divulgazione non autorizzata o l'accesso ai dati personali trattati dall'Ente. Esempi: invio di ",
+          "grade": 0
+        },
+        {
+          "passage_id": "p_68997ee58f5ae39b60cc12a62f4b8838",
+          "document_id": "d1a:dlgs-2003-196",
+          "section": "Art. 132 - (Conservazione di dati di traffico per altre finalità).",
+          "page": null,
+          "text": "((l'identità di un abbonato o di un cliente, come il nome, la data di nascita, l'indirizzo postale o geografico, i dati di fatturazione e pagamento, il numero di telefono o l'indirizzo e-mail forniti;))\n\nb)\n\n((il tipo di",
+          "grade": 0
+        },
+        {
+          "passage_id": "p_bab97850ca3a40b793f419a8f677ae34",
+          "document_id": "d1b:faq-videoterminali",
+          "section": "A chi segnalo una postazione non adeguata?",
+          "page": null,
+          "text": "Le segnalazioni si inviano al Servizio di Prevenzione e Protezione tramite il modulo disponibile nella intranet, sezione Sicurezza.",
+          "grade": 0
+        }
+      ]
+    },
+    {
+      "qid": "Q054",
+      "system": "S2",
+      "query": "Who do I contact if the website does not work with my screen reader?",
+      "type": "paraphrase",
+      "lang": "en",
+      "reasons": [
+        "false_insufficient_evidence"
+      ],
+      "targets": [
+        {
+          "document_id": "d1b:dichiarazione-accessibilita",
+          "section": "Meccanismo di feedback",
+          "snippet": "accessibilita@entedemo.example"
+        }
+      ],
+      "top_dense": 0.8042284,
+      "top_bm25": 8.153568699913148,
+      "top3": [
+        {
+          "passage_id": "p_2aedbc9f60500d8591ca1e4cd182713d",
+          "document_id": "d1a:l-2017-81",
+          "section": "Art. 2",
+          "page": 64,
+          "text": "A.R.L.\" GRUMO NEVANO (NA) CAMPANIA 04926870637 5 DATA & WORK SOCIETA' COOPERATIVA IN LIQUIDAZIONE NOLA (NA) CAMPANIA 04462331218 6 C.S.M. SOCIETA' COOPERATIVA SAN GIORGIO A CREMANO (NA) CAMPANIA 05521601210 7 COOPERATIVA",
+          "grade": 0
+        },
+        {
+          "passage_id": "p_9748659d3293d81ed51acd4d31c850d8",
+          "document_id": "d1b:dichiarazione-accessibilita",
+          "section": "Meccanismo di feedback",
+          "page": null,
+          "text": "Gli utenti possono segnalare casi di mancata accessibilità scrivendo a accessibilita@entedemo.example. L'Ente risponde entro 30 giorni. In caso di risposta insoddisfacente o di mancata risposta, l'utente può rivolgersi a",
+          "grade": 2
+        },
+        {
+          "passage_id": "p_4b58bf56938b82c807441853dcc1e2c7",
+          "document_id": "d1a:l-2017-81",
+          "section": "Art. 2",
+          "page": 77,
+          "text": "COOPERATIVA SOCIALEIN LIQUIDAZIONE SANTA MARIA CAPUA VETERE (CE) CAMPANIA 02840450619 354 L'ODISSEA SOCIETA' COOP.VA DI PRODUZIONE E LAVORO A RESP.LIMITATA QUARTO (NA) CAMPANIA 01419500630 355 SILO - SOCIETA' COOPERATIVA",
+          "grade": 0
+        }
+      ]
+    },
+    {
+      "qid": "Q056",
+      "system": "S2",
+      "query": "Chi fa parte della commissione che decide le sanzioni ai dipendenti?",
+      "type": "paraphrase",
+      "lang": "it",
+      "reasons": [
+        "no_correct_source_in_top3",
+        "answer_passage_not_in_top10"
+      ],
+      "targets": [
+        {
+          "document_id": "d1b:procedura-disciplinare",
+          "section": null,
+          "snippet": "composto dal Responsabile Ufficio Personale, che lo presiede"
+        }
+      ],
+      "top_dense": 0.83960485,
+      "top_bm25": 10.87069312576276,
+      "top3": [
+        {
+          "passage_id": "p_3df78a0e78376c56e321baa0a59628f5",
+          "document_id": "d1a:dlgs-2022-105",
+          "section": "Art. 17",
+          "page": 20,
+          "text": "7 -bis . L’omissione del versamento del compenso da parte del dipendente pubblico indebito percettore costituisce ipotesi di responsabilità erariale soggetta alla giurisdizione della Corte dei conti. (399) 8. Le pubblich",
+          "grade": 0
+        },
+        {
+          "passage_id": "p_a3d780b4b563e302a555824bee8b7452",
+          "document_id": "d1a:l-1970-300",
+          "section": "Art. 7 - (Sanzioni disciplinari)",
+          "page": null,
+          "text": "di accordo, nominato dal direttore dell'ufficio del lavoro. La sanzione disciplinare resta sospesa fino alla pronuncia da parte del collegio. Qualora il datore di lavoro non provveda, entro dieci giorni dall'invito rivol",
+          "grade": 0
+        },
+        {
+          "passage_id": "p_1617183b4e1ee248f20d9ff6e2cfe4e0",
+          "document_id": "d1a:dpr-2013-62",
+          "section": "Art. 1",
+          "page": 6,
+          "text": "senza assegni. Il compenso dei componenti del comitato è determinato nella misura del 15 per cento di quella fi ssata per il commissario. Tutti i trattamenti economici sono per intero a carico dell’impresa.",
+          "grade": 0
+        }
+      ]
+    },
+    {
+      "qid": "Q060",
+      "system": "S2",
+      "query": "fire risk in the basement paper archive",
+      "type": "paraphrase",
+      "lang": "en",
+      "reasons": [
+        "false_insufficient_evidence"
+      ],
+      "targets": [
+        {
+          "document_id": "d1b:valutazione-rischi-estratto",
+          "section": null,
+          "snippet": "Rischio incendio valutato come medio (indice 8)"
+        }
+      ],
+      "top_dense": 0.82030416,
+      "top_bm25": 8.506405312933612,
+      "top3": [
+        {
+          "passage_id": "p_ebe5c53c5700697e8dadfa3a641282f3",
+          "document_id": "d1b:valutazione-rischi-estratto",
+          "section": null,
+          "page": 1,
+          "text": "DOCUMENTO SINTETICO - Ente Demo è un'organizzazione fittizia (progetto universitario P14). Estratto del documento di valutazione dei rischi della sede centrale Metodo La valutazione è svolta ai sensi degli articoli 17 e ",
+          "grade": 2
+        },
+        {
+          "passage_id": "p_ef862468ab76167b8b6ac7c14ae14591",
+          "document_id": "d1a:l-2024-90",
+          "section": "Art. 1",
+          "page": 78,
+          "text": "aggiornamento del dossier in base ai nuovi dati preclinici e clinici, inserimento dei risultati di uno studio sull’adesività del cerotto transdermico al paragrafo 5.1 del riassunto delle caratteristiche del prodotto, int",
+          "grade": 0
+        },
+        {
+          "passage_id": "p_112c1a19543464900a8fbe877a74a28d",
+          "document_id": "d1a:dlgs-2023-24",
+          "section": "Art. 1",
+          "page": 79,
+          "text": "/ DJHYROD]LRQH\u0003q\u0003FRQFHVVD\u0003HQWUR\u0003L\u0003VHJXHQWL\u0003TXDQWLWDWLYL\u0003JLRUQDOLHUL\u0003SUHVXPHQGR\u000f\u0003LQ\u0003 FDVR\u0003GL\u0003DOLPHQWD]LRQH\u0003SURPLVFXD\u0003D\u0003EHQ]LQD\u0003H\u0003*3/\u0003R\u0003JDV\u0003QDWXUDOH\u000f\u0003XQ\u0003FRQVXPR\u0003GL\u0003 *3/\u0003R\u0003JDV\u0003QDWXUDOH\u0003SDUL\u0003DO\u0003\u001a\u0013\u0003SHU\u0003FHQWR\u0003GHO\u0003FRQVXPR\u0003WRWDO",
+          "grade": 0
+        }
+      ]
+    },
+    {
+      "qid": "Q062",
+      "system": "S2",
+      "query": "Come prenoto un posto auto nel parcheggio dei dipendenti?",
+      "type": "out_of_scope",
+      "lang": "it",
+      "reasons": [
+        "out_of_scope_not_flagged"
+      ],
+      "targets": [],
+      "top_dense": 0.8425268,
+      "top_bm25": 9.754056400687306,
+      "top3": [
+        {
+          "passage_id": "p_064c752d28f3a072842acc03a56ea7d1",
+          "document_id": "d1a:l-2024-90",
+          "section": "Art. 10",
+          "page": 46,
+          "text": "Utilizzo del mezzo proprio 1. È consentito l’utilizzo del mezzo proprio ove lo stesso risulti economicamente più conveniente rispetto ai normali servizi di linea o per difficoltà particolari di raggiungimento delle sedi ",
+          "grade": 0
+        },
+        {
+          "passage_id": "p_21ac778716e07d8d42b1a05ca663f699",
+          "document_id": "d1a:dlgs-2006-198",
+          "section": "Art. 17 - (Permessi)",
+          "page": null,
+          "text": "regionali, hanno diritto per l'esercizio delle loro funzioni, ove si tratti di lavoratori dipendenti, ad assentarsi dal posto di lavoro per un massimo di cinquanta ore lavorative mensili medie. Nella medesima ipotesi le ",
+          "grade": 0
+        },
+        {
+          "passage_id": "p_024e0c69413492cae67b39a2381bf7b1",
+          "document_id": "d1a:dlgs-2009-150",
+          "section": "Art. 49 - Modifiche all' articolo 30 del decreto legislativo 30 marzo 2001, n. 165 .",
+          "page": null,
+          "text": "1. Il comma 1 dell'articolo 30 del decreto legislativo 30 marzo 2001, n. 165 , è sostituito dal seguente: \"1. Le amministrazioni possono ricoprire posti vacanti in organico mediante cessione del contratto di lavoro di di",
+          "grade": 0
+        }
+      ]
+    },
+    {
+      "qid": "Q065",
+      "system": "S2",
+      "query": "Come iscrivo mio figlio all'asilo nido comunale?",
+      "type": "out_of_scope",
+      "lang": "it",
+      "reasons": [
+        "out_of_scope_not_flagged"
+      ],
+      "targets": [],
+      "top_dense": 0.8376099,
+      "top_bm25": 13.384632873203088,
+      "top3": [
+        {
+          "passage_id": "p_1ac543c265ec417b84697cf4637261f1",
+          "document_id": "d1a:l-1992-104",
+          "section": "Diritto all'educazione e all'istruzione",
+          "page": null,
+          "text": "1. Al bambino da 0 a 3 anni handicappato è garantito l'inserimento negli asili nido.\n\n2. È garantito il diritto all'educazione e all'istruzione della persona handicappata nelle sezioni di scuola materna, nelle classi com",
+          "grade": 0
+        },
+        {
+          "passage_id": "p_6e324a0f77f62d0325be899f04a2f742",
+          "document_id": "d1a:l-2015-124",
+          "section": "Art. 14 - Promozione della conciliazione dei tempi di vita e di lavoro nelle amministrazioni pubbliche",
+          "page": null,
+          "text": "2. Le amministrazioni pubbliche, nei limiti delle risorse di bilancio disponibili a legislazione vigente e senza nuovi o maggiori oneri per la finanza pubblica, procedono, al fine di conciliare i tempi di vita e di lavor",
+          "grade": 0
+        },
+        {
+          "passage_id": "p_17f64cad9427cd47e529e7d72d5e47a6",
+          "document_id": "d1a:l-1992-104",
+          "section": "Integrazione scolastica",
+          "page": null,
+          "text": "2. Per le finalità di cui al comma 1, gli enti locali e le unità sanitarie locali possono altresì prevedere l'adeguamento dell'organizzazione e del funzionamento degli asili nido alle esigenze dei bambini con handicap, a",
+          "grade": 0
+        }
+      ]
+    },
+    {
+      "qid": "Q069",
+      "system": "S2",
+      "query": "In che mese viene pagata la tredicesima ai dipendenti di Ente Demo?",
+      "type": "out_of_scope",
+      "lang": "it",
+      "reasons": [
+        "out_of_scope_not_flagged"
+      ],
+      "targets": [],
+      "top_dense": 0.85205793,
+      "top_bm25": 21.447270834907428,
+      "top3": [
+        {
+          "passage_id": "p_53e17df8b4f8d6bf587b58b001a5cc1d",
+          "document_id": "d1b:codice-comportamento-integrativo",
+          "section": "Articolo 2",
+          "page": 1,
+          "text": "Il dipendente non accetta regali o altre utilità, salvo quelli d'uso di modico valore. Per i dipendenti di Ente Demo il modico valore è fissato in 100 euro complessivi annui per ciascun donante, in misura inferiore al li",
+          "grade": 0
+        },
+        {
+          "passage_id": "p_058ed2affbdd1654af0a8aabbe70cc64",
+          "document_id": "d1b:codice-comportamento-integrativo",
+          "section": "Articolo 1",
+          "page": 1,
+          "text": "Il presente codice integra e specifica le previsioni del D.P.R. 62/2013 per i dipendenti di Ente Demo.",
+          "grade": 0
+        },
+        {
+          "passage_id": "p_be3df8701ee6475960f068a8bcbd67ea",
+          "document_id": "d1b:carta-servizi",
+          "section": null,
+          "page": 1,
+          "text": "DOCUMENTO SINTETICO - Ente Demo è un'organizzazione fittizia (progetto universitario P14). Carta dei servizi di Ente Demo 2026 Chi siamo Ente Demo è un ente pubblico che offre ai cittadini e alle imprese del territorio s",
+          "grade": 0
+        }
+      ]
+    }
+  ]
+}

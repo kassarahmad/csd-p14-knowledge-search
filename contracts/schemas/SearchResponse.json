@@ -1,0 +1,447 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://p14.example/contracts/v1/SearchResponse.json",
+  "$defs": {
+    "AccessLevel": {
+      "enum": [
+        "public",
+        "internal",
+        "restricted"
+      ],
+      "title": "AccessLevel",
+      "type": "string"
+    },
+    "Citation": {
+      "properties": {
+        "document_id": {
+          "title": "Document Id",
+          "type": "string"
+        },
+        "document_version": {
+          "title": "Document Version",
+          "type": "string"
+        },
+        "title": {
+          "title": "Title",
+          "type": "string"
+        },
+        "section": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Section heading, e.g. 'Art. 18'.",
+          "title": "Section"
+        },
+        "page": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "1-based page for paginated formats (PDF).",
+          "title": "Page"
+        },
+        "char_start": {
+          "description": "Offset in the parsed document text.",
+          "title": "Char Start",
+          "type": "integer"
+        },
+        "char_end": {
+          "title": "Char End",
+          "type": "integer"
+        },
+        "source_url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Url"
+        }
+      },
+      "required": [
+        "document_id",
+        "document_version",
+        "title",
+        "char_start",
+        "char_end"
+      ],
+      "title": "Citation",
+      "type": "object"
+    },
+    "DocumentMetadata": {
+      "additionalProperties": false,
+      "properties": {
+        "office": {
+          "description": "Owning office, e.g. hr, it, legal.",
+          "maxLength": 40,
+          "minLength": 1,
+          "title": "Office",
+          "type": "string"
+        },
+        "type": {
+          "description": "Document type, e.g. legislation, procedure, faq.",
+          "maxLength": 40,
+          "minLength": 1,
+          "title": "Type",
+          "type": "string"
+        },
+        "author": {
+          "anyOf": [
+            {
+              "maxLength": 200,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Author"
+        },
+        "date": {
+          "anyOf": [
+            {
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "ISO date (YYYY-MM-DD) of the document.",
+          "title": "Date"
+        },
+        "project": {
+          "anyOf": [
+            {
+              "maxLength": 100,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Project"
+        },
+        "source_url": {
+          "anyOf": [
+            {
+              "maxLength": 2000,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Where the original was obtained.",
+          "title": "Source Url"
+        }
+      },
+      "required": [
+        "office",
+        "type"
+      ],
+      "title": "DocumentMetadata",
+      "type": "object"
+    },
+    "Evidence": {
+      "description": "Ranking evidence. Scores are NOT calibrated probabilities and must not be read as confidence.",
+      "properties": {
+        "score": {
+          "description": "Score of the system that produced the ranking (RRF for hybrid).",
+          "title": "Score",
+          "type": "number"
+        },
+        "rank": {
+          "minimum": 1,
+          "title": "Rank",
+          "type": "integer"
+        },
+        "retriever_ranks": {
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "description": "Rank in each retriever (bm25, dense); null = not retrieved.",
+          "title": "Retriever Ranks",
+          "type": "object"
+        },
+        "retriever_scores": {
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "title": "Retriever Scores",
+          "type": "object"
+        }
+      },
+      "required": [
+        "score",
+        "rank",
+        "retriever_ranks",
+        "retriever_scores"
+      ],
+      "title": "Evidence",
+      "type": "object"
+    },
+    "Passage": {
+      "properties": {
+        "passage_id": {
+          "title": "Passage Id",
+          "type": "string"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
+        "citation": {
+          "$ref": "#/$defs/Citation"
+        },
+        "evidence": {
+          "$ref": "#/$defs/Evidence"
+        }
+      },
+      "required": [
+        "passage_id",
+        "text",
+        "citation",
+        "evidence"
+      ],
+      "title": "Passage",
+      "type": "object"
+    },
+    "ResultDocument": {
+      "properties": {
+        "document_id": {
+          "title": "Document Id",
+          "type": "string"
+        },
+        "document_version": {
+          "title": "Document Version",
+          "type": "string"
+        },
+        "title": {
+          "title": "Title",
+          "type": "string"
+        },
+        "access_level": {
+          "$ref": "#/$defs/AccessLevel"
+        },
+        "metadata": {
+          "$ref": "#/$defs/DocumentMetadata"
+        },
+        "owner": {
+          "title": "Owner",
+          "type": "string"
+        },
+        "synthetic": {
+          "title": "Synthetic",
+          "type": "boolean"
+        },
+        "llm_generated": {
+          "title": "Llm Generated",
+          "type": "boolean"
+        },
+        "best_rank": {
+          "title": "Best Rank",
+          "type": "integer"
+        },
+        "passages": {
+          "items": {
+            "$ref": "#/$defs/Passage"
+          },
+          "title": "Passages",
+          "type": "array"
+        }
+      },
+      "required": [
+        "document_id",
+        "document_version",
+        "title",
+        "access_level",
+        "metadata",
+        "owner",
+        "synthetic",
+        "llm_generated",
+        "best_rank",
+        "passages"
+      ],
+      "title": "ResultDocument",
+      "type": "object"
+    },
+    "Summary": {
+      "properties": {
+        "method": {
+          "const": "extractive",
+          "default": "extractive",
+          "title": "Method",
+          "type": "string"
+        },
+        "generated": {
+          "default": false,
+          "description": "False: sentences are copied verbatim from passages.",
+          "title": "Generated",
+          "type": "boolean"
+        },
+        "sentences": {
+          "items": {
+            "$ref": "#/$defs/SummarySentence"
+          },
+          "title": "Sentences",
+          "type": "array"
+        }
+      },
+      "required": [
+        "sentences"
+      ],
+      "title": "Summary",
+      "type": "object"
+    },
+    "SummarySentence": {
+      "properties": {
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
+        "passage_id": {
+          "title": "Passage Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "text",
+        "passage_id"
+      ],
+      "title": "SummarySentence",
+      "type": "object"
+    },
+    "Versions": {
+      "properties": {
+        "pipeline_version": {
+          "title": "Pipeline Version",
+          "type": "string"
+        },
+        "chunker_version": {
+          "title": "Chunker Version",
+          "type": "string"
+        },
+        "embedding_model": {
+          "title": "Embedding Model",
+          "type": "string"
+        },
+        "reranker_model": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Reranker Model"
+        },
+        "index_snapshot_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Index Snapshot Id"
+        }
+      },
+      "required": [
+        "pipeline_version",
+        "chunker_version",
+        "embedding_model",
+        "reranker_model",
+        "index_snapshot_id"
+      ],
+      "title": "Versions",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "request_id": {
+      "title": "Request Id",
+      "type": "string"
+    },
+    "query": {
+      "title": "Query",
+      "type": "string"
+    },
+    "system": {
+      "description": "Retrieval system that produced the shown ranking (B0, S1, S2).",
+      "title": "System",
+      "type": "string"
+    },
+    "results": {
+      "description": "Documents ranked by their best passage.",
+      "items": {
+        "$ref": "#/$defs/ResultDocument"
+      },
+      "title": "Results",
+      "type": "array"
+    },
+    "insufficient_evidence": {
+      "title": "Insufficient Evidence",
+      "type": "boolean"
+    },
+    "summary": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Summary"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "versions": {
+      "$ref": "#/$defs/Versions"
+    }
+  },
+  "required": [
+    "request_id",
+    "query",
+    "system",
+    "results",
+    "insufficient_evidence",
+    "summary",
+    "versions"
+  ],
+  "title": "SearchResponse",
+  "type": "object"
+}

@@ -1,0 +1,142 @@
+{
+  "started": "2026-11-10T12:46:08",
+  "clean": true,
+  "steps": [
+    {
+      "step": "fetch_corpus",
+      "exit_code": 0,
+      "seconds": 0.1,
+      "tail": [
+        "skip l-2015-124 (exists)",
+        "skip dl-2021-80 (exists)",
+        "32 acts recorded, 0 failures -> data\\raw\\d1a\\fetch_record.json"
+      ]
+    },
+    {
+      "step": "generate_d1b",
+      "exit_code": 0,
+      "seconds": 0.7,
+      "tail": [
+        "ok  restricted safety   valutazione-rischi-estratto.pdf",
+        "ok  restricted it       verbale-audit-sicurezza-2025.docx",
+        "25 synthetic documents -> data\\raw\\d1b"
+      ]
+    },
+    {
+      "step": "ingest_corpus",
+      "exit_code": 0,
+      "seconds": 46.9,
+      "tail": [
+        "W1110 12:46:14.316000 45768 Lib\\site-packages\\torch\\distributed\\elastic\\multiprocessing\\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.",
+        "Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]",
+        "Loading weights: 100%|██████████| 199/199 [00:00<00:00, 5274.85it/s]"
+      ]
+    },
+    {
+      "step": "corpus_stats",
+      "exit_code": 0,
+      "seconds": 0.6,
+      "tail": [
+        "  \"mean_passage_chars\": 668.7",
+        "}",
+        "-> eval\\results\\corpus_stats.json"
+      ]
+    },
+    {
+      "step": "build_qrels",
+      "exit_code": 0,
+      "seconds": 0.7,
+      "tail": [
+        "110 queries (94 in scope); mean relevant passages per in-scope query: 4.0"
+      ]
+    },
+    {
+      "step": "verify_test_freeze",
+      "exit_code": 0,
+      "seconds": 0.1,
+      "tail": [
+        "OK: 70 test queries, sha256=986469f15d0a82c3"
+      ]
+    },
+    {
+      "step": "build_dense_index_granite",
+      "exit_code": 0,
+      "seconds": 20.4,
+      "tail": [
+        "W1110 12:47:02.459000 24796 Lib\\site-packages\\torch\\distributed\\elastic\\multiprocessing\\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.",
+        "Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]",
+        "Loading weights: 100%|██████████| 103/103 [00:00<00:00, 6102.14it/s]"
+      ]
+    },
+    {
+      "step": "compare_models",
+      "exit_code": 0,
+      "seconds": 15.5,
+      "tail": [
+        "Loading weights: 100%|██████████| 199/199 [00:00<00:00, 4584.44it/s]",
+        "Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]",
+        "Loading weights: 100%|██████████| 103/103 [00:00<00:00, 5710.01it/s]"
+      ]
+    },
+    {
+      "step": "calibrate_threshold",
+      "exit_code": 0,
+      "seconds": 10.7,
+      "tail": [
+        "W1110 12:47:38.324000 44780 Lib\\site-packages\\torch\\distributed\\elastic\\multiprocessing\\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.",
+        "Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]",
+        "Loading weights: 100%|██████████| 199/199 [00:00<00:00, 4760.08it/s]"
+      ]
+    },
+    {
+      "step": "pytest",
+      "exit_code": 0,
+      "seconds": 6.6,
+      "tail": [
+        "........................................................................ [ 90%]",
+        "........                                                                 [100%]"
+      ]
+    },
+    {
+      "step": "run_eval",
+      "exit_code": 0,
+      "seconds": 331.7,
+      "tail": [
+        "Loading weights: 100%|██████████| 199/199 [00:00<00:00, 4366.71it/s]",
+        "Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]",
+        "Loading weights: 100%|██████████| 199/199 [00:00<00:00, 4207.67it/s]"
+      ]
+    },
+    {
+      "step": "error_analysis",
+      "exit_code": 0,
+      "seconds": 11.8,
+      "tail": [
+        "W1110 12:53:27.341000 45504 Lib\\site-packages\\torch\\distributed\\elastic\\multiprocessing\\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.",
+        "Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]",
+        "Loading weights: 100%|██████████| 199/199 [00:00<00:00, 4487.74it/s]"
+      ]
+    },
+    {
+      "step": "render_results",
+      "exit_code": 0,
+      "seconds": 0.7,
+      "tail": [
+        "rendered docs\\EVALUATION.md",
+        "rendered docs\\REPORT.md",
+        "rendered docs\\REPRODUCIBILITY.md"
+      ]
+    }
+  ],
+  "removed": [
+    "data\\processed\\d2_scifact.sqlite",
+    "data\\processed\\p14.sqlite",
+    "data\\processed\\p14.sqlite-shm",
+    "data\\processed\\p14.sqlite-wal",
+    "qdrant:d2_scifact__intfloat-multilingual-e5-small",
+    "qdrant:p14_passages__ibm-granite-granite-embedding-107m-multilingual",
+    "qdrant:p14_passages__intfloat-multilingual-e5-small"
+  ],
+  "total_seconds": 447.4,
+  "ok": true
+}

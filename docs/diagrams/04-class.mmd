@@ -1,0 +1,76 @@
+%% Main classes and their relations (names as in the code).
+classDiagram
+    class Services {
+        settings
+        store
+        index
+        embedder
+        registry
+        ingestion
+        search
+    }
+    class Store {
+        +query(sql, params)
+        +transaction()
+        +refresh_snapshot_id()
+        +log_query()
+        +log_shadow()
+        +add_feedback()
+    }
+    class VectorIndex {
+        +collection
+        +ensure_collection()
+        +upsert(payloads, vectors)
+        +delete(passage_ids)
+        +search(vector, filter, limit)
+    }
+    class Embedder {
+        <<protocol>>
+        +embed_queries(texts)
+        +embed_passages(texts)
+    }
+    class SentenceTransformerEmbedder
+    class HashingEmbedder
+    class IngestionService {
+        +ingest(IngestDocument, Principal) IngestResult
+        +approve(document_id, Principal, note) IngestResult
+    }
+    class SearchService {
+        +rank_all(query, principal, k, systems) dict
+        +search(SearchRequest, Principal, request_id) SearchResponse
+        +hydrate(hits, principal)
+        +versions() Versions
+    }
+    class BM25Retriever {
+        +retrieve(query, principal, k, filters) list~Hit~
+    }
+    class DenseRetriever {
+        +retrieve(query, principal, k, filters) list~Hit~
+    }
+    class Principal {
+        name
+        role
+        level
+        offices
+        +can_manage(office)
+        +pseudonym
+    }
+    class PrincipalRegistry {
+        +authenticate(api_key) Principal
+    }
+    Embedder <|.. SentenceTransformerEmbedder
+    Embedder <|.. HashingEmbedder
+    Services --> Store
+    Services --> VectorIndex
+    Services --> IngestionService
+    Services --> SearchService
+    Services --> PrincipalRegistry
+    IngestionService --> Store
+    IngestionService --> VectorIndex
+    IngestionService --> Embedder
+    SearchService --> BM25Retriever
+    SearchService --> DenseRetriever
+    BM25Retriever --> Store
+    DenseRetriever --> VectorIndex
+    DenseRetriever --> Embedder
+    PrincipalRegistry --> Principal

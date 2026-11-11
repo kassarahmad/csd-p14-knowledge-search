@@ -1,0 +1,77 @@
+Captured 2026-11-10T13:09:21 against http://127.0.0.1:8000
+
+GET /v1/health
+{
+  "status": "ok",
+  "components": {
+    "sqlite": "ok",
+    "qdrant": "ok"
+  }
+}
+
+GET /v1/version
+{
+  "pipeline_version": "0.1.0",
+  "chunker_version": "chunker-1",
+  "embedding_model": "intfloat/multilingual-e5-small",
+  "reranker_model": null,
+  "index_snapshot_id": "idx-d90ca31ee5aee092"
+}
+
+POST /v1/search  principal=employee  query='Quanti giorni al mese posso lavorare da casa?'  -> HTTP 200, request_id=a918909373704767b528f71b221859ce
+  insufficient_evidence=False  system=S2  snapshot=idx-d90ca31ee5aee092
+  #1 [internal  ] d1b:regolamento-lavoro-agile                  Articolo 3  page=1  passage=p_945255ff94506d6ca9cecacb26e2003b
+  #2 [public    ] d1a:l-2017-81                                 Art. 26  page=14  passage=p_a905e820bb7678b72aceeb55c4a75519
+  #4 [public    ] d1a:dlgs-2008-81                              Art. 160 - (( (Sanzioni per i lavoratori  page=None  passage=p_d157ee10fb1a8ee0a1a5c7d1e82554cd
+  #5 [public    ] d1a:dlgs-2001-151                             Art. 23 - Calcolo dell'indennità ( legge  page=None  passage=p_ce7fea6d2626a5a517f9593631a80623
+
+POST /v1/search  principal=employee  query='budget formazione 2026'  -> HTTP 200, request_id=b66c80b89efa406fa8cc1b4cd941d42a
+  insufficient_evidence=False  system=S2  snapshot=idx-d90ca31ee5aee092
+  #1 [internal  ] d1b:circolare-2025-11-formazione-obbligatoria Corsi obbligatori  page=None  passage=p_e7fa335ecca92c7cf7ea29ae61c67e56
+  #2 [public    ] d1a:l-2024-90                                 Art. 8  page=41  passage=p_3db514cd76e494eb9834eeb7548a1c58
+  #4 [public    ] d1a:dl-2021-80                                Art. 7 - Reclutamento di personale nelle  page=None  passage=p_b9d60871609100a471cac00e759b489c
+
+POST /v1/search  principal=hr-officer  query='budget formazione 2026'  -> HTTP 200, request_id=7b2a81c86ac44a85b867138da6aab957
+  insufficient_evidence=False  system=S2  snapshot=idx-d90ca31ee5aee092
+  #1 [restricted] d1b:budget-formazione-2026                    Stanziamento complessivo  page=None  passage=p_f2fd246f3225644e989626cfc981c21c
+  #2 [internal  ] d1b:circolare-2025-11-formazione-obbligatoria Corsi obbligatori  page=None  passage=p_e7fa335ecca92c7cf7ea29ae61c67e56
+  #3 [public    ] d1a:l-2024-90                                 Art. 8  page=41  passage=p_3db514cd76e494eb9834eeb7548a1c58
+  #5 [public    ] d1a:dl-2021-80                                Art. 7 - Reclutamento di personale nelle  page=None  passage=p_b9d60871609100a471cac00e759b489c
+
+POST /v1/search  principal=p24-external-assistant  query='budget formazione 2026'  -> HTTP 200, request_id=499033bc0f3b4fa2b1c82d401e98083a
+  insufficient_evidence=False  system=S2  snapshot=idx-d90ca31ee5aee092
+  #1 [public    ] d1a:l-2024-90                                 Art. 8  page=41  passage=p_3db514cd76e494eb9834eeb7548a1c58
+  #3 [public    ] d1a:dl-2021-80                                Art. 7 - Reclutamento di personale nelle  page=None  passage=p_b9d60871609100a471cac00e759b489c
+
+POST /v1/search  principal=employee  query='Qual è il menu della mensa aziendale?'  -> HTTP 200, request_id=357d88bcf9534354b3ebafbf3377af58
+  insufficient_evidence=True  system=S2  snapshot=idx-d90ca31ee5aee092
+  #1 [public    ] d1a:l-1970-300                                Art. 11  page=None  passage=p_4329f71a08f099ba1ada33d59f6c811e
+  #3 [public    ] d1a:dlgs-2008-81                              Art. 30 - Modelli di organizzazione e di  page=None  passage=p_9c73ad0948ec7623834aff6ccd8940a3
+  #4 [public    ] d1a:dlgs-2023-24                              Art. 25  page=38  passage=p_62c20f97feee9597f1622879004c937b
+  #5 [public    ] d1a:l-2017-81                                 Art. 2  page=73  passage=p_c004b3747ea06eec60c975f8646becd7
+
+POST /v1/search  principal=employee  query='Can I work remotely from another country?'  -> HTTP 200, request_id=21342223d4854aa085a0079f69fb1d16
+  insufficient_evidence=True  system=S2  snapshot=idx-d90ca31ee5aee092
+  #1 [public    ] d1a:l-2017-81                                 Art. 2  page=64  passage=p_2aedbc9f60500d8591ca1e4cd182713d
+  #2 [internal  ] d1b:faq-lavoro-agile                          Posso lavorare in modalità agile da una   page=None  passage=p_5d28bcd70d7c58a1cf4985717c2f2172
+  #3 [public    ] d1a:dlgs-2022-104                             Art. 4 - Modifiche al decreto legislativ  page=None  passage=p_0a332cd635c4dbb2a6d21e6f986e8928
+
+GET /v1/documents/d1b:budget-formazione-2026 as employee
+HTTP 404 application/problem+json
+{
+  "type": "about:blank",
+  "title": "Not found",
+  "status": 404,
+  "detail": "unknown id: d1b:budget-formazione-2026",
+  "instance": "/v1/documents/d1b:budget-formazione-2026"
+}
+
+POST /v1/search without X-API-Key
+HTTP 401 application/problem+json
+{
+  "type": "about:blank",
+  "title": "Unauthorized",
+  "status": 401,
+  "detail": "missing or unknown X-API-Key",
+  "instance": "/v1/search"
+}

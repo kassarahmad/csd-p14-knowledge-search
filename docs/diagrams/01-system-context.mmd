@@ -1,0 +1,21 @@
+%% System context: P14 among its users and the other puzzle pieces (implemented mocks: P24, P12).
+flowchart LR
+    user([Employee / citizen via demo UI])
+    owner([Content owner / officer])
+    p24[P24 External assistant<br/>mock: mocks/p24_external_assistant]
+    p12[P12 Document generation<br/>mock: mocks/p12_document_generation]
+    p11[P11 Document reading<br/>documented only]
+    p15[P15 Meeting memory<br/>documented only]
+    p25[P25 Expert knowledge<br/>documented only]
+    p14[[P14 Knowledge Search<br/>FastAPI + SQLite + Qdrant]]
+    src[(Sources: Normattiva, Gazzetta Ufficiale,<br/>Ente Demo internal documents)]
+
+    user -- "POST /v1/search, /v1/feedback" --> p14
+    owner -- "POST /v1/documents, /approve" --> p14
+    src -- "scripts/fetch_corpus.py, generate_d1b.py, ingest_corpus.py" --> p14
+    p14 -- "public passages + citations" --> p24
+    p14 -- "passages + passage_id" --> p12
+    p11 -. "IngestDocument" .-> p14
+    p15 -. "IngestDocument (type=meeting)" .-> p14
+    p25 -. "IngestDocument (validated_by)" .-> p14
+    p14 -. "retrieval with source attribution" .-> p25

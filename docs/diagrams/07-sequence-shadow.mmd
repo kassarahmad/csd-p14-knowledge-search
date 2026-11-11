@@ -1,0 +1,16 @@
+%% Shadow mode (validation before automation): the shadow system runs on the same query, is logged, never shown.
+sequenceDiagram
+    actor U as User
+    participant S as SearchService
+    participant R as Retrievers (shared runs)
+    participant DB as SQLite
+
+    U->>S: query
+    S->>R: one BM25 run + one dense run
+    R-->>S: candidate lists
+    S->>S: shown ranking = DISPLAY_SYSTEM (B0 during validation)
+    S->>S: shadow ranking = SHADOW_SYSTEM (S2 candidate)
+    S->>DB: query_log (shown) + shadow_log (shown ids, shadow ids, overlap@k)
+    S-->>U: only the shown ranking
+    U->>S: feedback on shown passages (POST /v1/feedback)
+    Note over DB: Offline: compare shown vs shadow on the same queries before switching DISPLAY_SYSTEM

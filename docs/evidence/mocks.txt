@@ -1,0 +1,51 @@
+$ C:\Users\kassa\Projects\csd-p14-knowledge-search\.venv\Scripts\python.exe mocks/p24_external_assistant/p24_client.py Quanto costano le copie per l'accesso agli atti?
+{
+  "status": "answered",
+  "answer": "Per l'accesso documentale con rilascio di copie cartacee è previsto un rimborso di 0,25 euro a pagina; le copie digitali inviate via email o PEC sono gratuite. d) l'accesso alle informazioni contenute in strumenti informatici, adottando le misure atte a salvaguardare la distruzione, la perdita accidentale, nonché la divulgazione non autorizzata. In tali casi, le copie dei dati informatizzati possono essere rilasciate sugli appositi supporti, ove forniti dal richiedente, ovvero mediante collegamento in rete, ove esistente.",
+  "citations": [
+    {
+      "passage_id": "p_086db3c0e026ca75b1bbfb78683476b2",
+      "title": "FAQ per i cittadini - Accesso agli atti e accesso civico",
+      "section": "Quanto costa?",
+      "page": null
+    },
+    {
+      "passage_id": "p_4ca5628a0649b88b5d7b76d1bf8e59fc",
+      "title": "DECRETO DEL PRESIDENTE DELLA REPUBBLICA 12 aprile 2006, n. 184 - accesso ai documenti",
+      "section": "Contenuto minimo degli atti delle singole amministrazioni",
+      "page": null
+    }
+  ],
+  "p14_request_id": "c9e11a91cef34f9592ce2a9c925755a3",
+  "p14_versions": {
+    "pipeline_version": "0.1.0",
+    "chunker_version": "chunker-1",
+    "embedding_model": "intfloat/multilingual-e5-small",
+    "reranker_model": null,
+    "index_snapshot_id": "idx-d90ca31ee5aee092"
+  }
+}
+
+$ C:\Users\kassa\Projects\csd-p14-knowledge-search\.venv\Scripts\python.exe mocks/p24_external_assistant/p24_client.py Qual è il menu della mensa aziendale?
+{
+  "status": "escalated",
+  "reason": "insufficient evidence in the knowledge base",
+  "question": "Qual è il menu della mensa aziendale?",
+  "p14_request_id": "6b12a41f348543d8b7ce29c98f3cf6fd"
+}
+
+$ C:\Users\kassa\Projects\csd-p14-knowledge-search\.venv\Scripts\python.exe mocks/p12_document_generation/p12_client.py lavoro agile disconnessione
+# DRAFT - lavoro agile disconnessione
+
+Status: draft generated from P14 sources; requires human review before use.
+
+- Articolo 4 - Fasce di contattabilità e disconnessione Durante le giornate di lavoro agile il dipendente deve essere contattabile dalle 9:30 alle 12:30 e dalle 14:30 alle 16:00. [p_945255ff94506d6ca9cecacb26e2003b]
+- Dalle 19:00 alle 8:00 vale il diritto alla disconnessione. [p_afa9e0a3264c526754855fb001440792]
+- La lavoratrice o il lavoratore che richiede di fruire del lavoro agile non può essere sanzionato, demansionato, licenziato, trasferito o sottoposto ad altra misura organizzativa avente effetti negativi, diretti o indiretti, sulle condizioni di lavoro. [p_1c65c7ea5a0467bd133415836b62fa2f]
+- L’accordo individua altresì i tempi di riposo del lavoratore nonché le misure tecniche e organizzative necessarie per assicurare la disconnessione del lavoratore dalle strumentazioni tecnologiche di lavoro. 2. [p_5f0e2174cc72ac89aa4025d6f8972028]
+
+## Sources
+- [p_945255ff94506d6ca9cecacb26e2003b] Regolamento interno sul lavoro agile (Articolo 3, p. 1)
+- [p_afa9e0a3264c526754855fb001440792] FAQ interne sul lavoro agile (Devo rispondere al telefono la sera?)
+- [p_1c65c7ea5a0467bd133415836b62fa2f] DECRETO LEGISLATIVO 30 giugno 2022, n. 105 - conciliazione vita-lavoro (Art. 10, p. 36)
+- [p_5f0e2174cc72ac89aa4025d6f8972028] LEGGE 22 maggio 2017, n. 81 - lavoro agile (Art. 19, p. 10)

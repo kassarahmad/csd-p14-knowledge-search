@@ -1,0 +1,15 @@
+%% Integration contract (contracts/openapi/p14-search.yaml, contracts/schemas/*.json).
+flowchart LR
+    subgraph P14[P14 /v1]
+        search[POST /v1/search]
+        passages["GET /v1/passages/{id}"]
+        docs[POST /v1/documents + approve]
+    end
+    p24[P24 mock<br/>key mapped to level public] -- "SearchRequest" --> search
+    search -- "SearchResponse: public passages, citations,<br/>insufficient_evidence" --> p24
+    p24 -- "insufficient_evidence: escalate" --> human([Human operator])
+    p12[P12 mock<br/>key mapped to level internal] -- "SearchRequest" --> search
+    search -- "passages + passage_id" --> p12
+    p12 -- "re-resolve cited ids" --> passages
+    p12 -- "DRAFT citing passage_id" --> reviewer([Human reviewer])
+    p11[P11 / P15 / P25] -. "IngestDocument JSON (documented)" .-> docs

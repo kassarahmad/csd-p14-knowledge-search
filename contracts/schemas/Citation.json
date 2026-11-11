@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://p14.example/contracts/v1/Citation.json",
+  "properties": {
+    "document_id": {
+      "title": "Document Id",
+      "type": "string"
+    },
+    "document_version": {
+      "title": "Document Version",
+      "type": "string"
+    },
+    "title": {
+      "title": "Title",
+      "type": "string"
+    },
+    "section": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Section heading, e.g. 'Art. 18'.",
+      "title": "Section"
+    },
+    "page": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "1-based page for paginated formats (PDF).",
+      "title": "Page"
+    },
+    "char_start": {
+      "description": "Offset in the parsed document text.",
+      "title": "Char Start",
+      "type": "integer"
+    },
+    "char_end": {
+      "title": "Char End",
+      "type": "integer"
+    },
+    "source_url": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Source Url"
+    }
+  },
+  "required": [
+    "document_id",
+    "document_version",
+    "title",
+    "char_start",
+    "char_end"
+  ],
+  "title": "Citation",
+  "type": "object"
+}

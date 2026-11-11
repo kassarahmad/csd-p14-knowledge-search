@@ -1,0 +1,20 @@
+$ C:\Users\kassa\Projects\csd-p14-knowledge-search\.venv\Scripts\python.exe -m pytest -v -p no:cacheprovider
+============================= test session starts =============================
+platform win32 -- Python 3.11.18, pytest-9.2.0, pluggy-1.7.0
+rootdir: C:\Users\kassa\Projects\csd-p14-knowledge-search
+configfile: pyproject.toml
+testpaths: tests
+plugins: anyio-4.16.0
+collected 80 items
+
+tests\test_acl_leakage.py ............                                   [ 15%]
+tests\test_api.py ..........                                             [ 27%]
+tests\test_api_meta.py ..                                                [ 30%]
+tests\test_contract.py ................                                  [ 50%]
+tests\test_frontend.py .                                                 [ 51%]
+tests\test_metrics.py ....                                               [ 56%]
+tests\test_mocks.py ....                                                 [ 61%]
+tests\test_models_store.py .............                                 [ 77%]
+tests\test_parser_chunker.py ..................                          [100%]
+
+============================= 80 passed in 4.96s ==============================

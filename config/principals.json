@@ -1,0 +1,14 @@
+{
+  "description": "API consumers of P14. No secrets here: each principal's API key is read from the environment variable named in api_key_env (.env). level = highest access level; offices = offices whose restricted documents are visible ('*' = all).",
+  "principals": [
+    {"name": "p24-external-assistant", "role": "consumer", "level": "public", "offices": [], "api_key_env": "P14_KEY_P24"},
+    {"name": "p12-document-generation", "role": "consumer", "level": "internal", "offices": [], "api_key_env": "P14_KEY_P12"},
+    {"name": "employee", "role": "employee", "level": "internal", "offices": [], "api_key_env": "P14_KEY_EMPLOYEE"},
+    {"name": "hr-officer", "role": "officer", "level": "restricted", "offices": ["hr"], "api_key_env": "P14_KEY_HR"},
+    {"name": "it-officer", "role": "officer", "level": "restricted", "offices": ["it"], "api_key_env": "P14_KEY_IT"},
+    {"name": "legal-officer", "role": "officer", "level": "restricted", "offices": ["legal"], "api_key_env": "P14_KEY_LEGAL"},
+    {"name": "dpo", "role": "officer", "level": "restricted", "offices": ["privacy"], "api_key_env": "P14_KEY_DPO"},
+    {"name": "rspp", "role": "officer", "level": "restricted", "offices": ["safety"], "api_key_env": "P14_KEY_RSPP"},
+    {"name": "admin", "role": "admin", "level": "restricted", "offices": ["*"], "api_key_env": "P14_KEY_ADMIN"}
+  ]
+}

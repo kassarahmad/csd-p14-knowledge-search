@@ -1,0 +1,243 @@
+{
+  "request_id": "57ff24e6eda14db1a293522fc54f8f29",
+  "query": "Quanti giorni al mese posso lavorare da casa?",
+  "system": "S2",
+  "results": [
+    {
+      "document_id": "d1b:regolamento-lavoro-agile",
+      "document_version": "d4d2bf04ce7fc4d564b579322b855e9c328f0b207a712c358f8803138562a980",
+      "title": "Regolamento interno sul lavoro agile",
+      "access_level": "internal",
+      "metadata": {
+        "office": "hr",
+        "type": "regulation",
+        "author": "Ente Demo (synthetic)",
+        "date": "2025-12-01",
+        "project": null,
+        "source_url": "data/d1b_source/06-regolamento-lavoro-agile.md"
+      },
+      "owner": "Responsabile Ufficio Personale",
+      "synthetic": true,
+      "llm_generated": true,
+      "best_rank": 1,
+      "passages": [
+        {
+          "passage_id": "p_945255ff94506d6ca9cecacb26e2003b",
+          "text": "Ciascun dipendente può svolgere la prestazione in modalità agile per un massimo di 10 giornate al mese, non cumulabili tra mesi diversi. Le giornate sono pianificate con almeno una settimana di anticipo e registrate nel portale del personale. Articolo 4 - Fasce di contattabilità e disconnessione Durante le giornate di lavoro agile il dipendente deve essere contattabile dalle 9:30 alle 12:30 e dalle 14:30 alle 16:00. È garantito il diritto alla disconnessione dalle 19:00 alle 8:00 del giorno successivo, oltre che nei giorni festivi e nel fine settimana; in tale fascia il dipendente non è tenuto a rispondere a telefonate, email o messaggi.",
+          "citation": {
+            "document_id": "d1b:regolamento-lavoro-agile",
+            "document_version": "d4d2bf04ce7fc4d564b579322b855e9c328f0b207a712c358f8803138562a980",
+            "title": "Regolamento interno sul lavoro agile",
+            "section": "Articolo 3",
+            "page": 1,
+            "char_start": 665,
+            "char_end": 1310,
+            "source_url": "data/d1b_source/06-regolamento-lavoro-agile.md"
+          },
+          "evidence": {
+            "score": 0.028898,
+            "rank": 1,
+            "retriever_ranks": {
+              "bm25": 14,
+              "dense": 5
+            },
+            "retriever_scores": {
+              "bm25": 7.389926934260846,
+              "dense": 0.8541981
+            }
+          }
+        }
+      ]
+    },
+    {
+      "document_id": "d1a:l-2017-81",
+      "document_version": "b1e659e3416a4831dfad007f60949711bfb52360736d1421b3011c041357f692",
+      "title": "LEGGE 22 maggio 2017, n. 81 - lavoro agile",
+      "access_level": "public",
+      "metadata": {
+        "office": "hr",
+        "type": "legislation",
+        "author": "Repubblica Italiana",
+        "date": "2017-05-22",
+        "project": null,
+        "source_url": "https://www.gazzettaufficiale.it/eli/gu/2017/06/13/135/sg/pdf"
+      },
+      "owner": "Responsabile Ufficio Personale",
+      "synthetic": false,
+      "llm_generated": false,
+      "best_rank": 2,
+      "passages": [
+        {
+          "passage_id": "p_a905e820bb7678b72aceeb55c4a75519",
+          "text": "5. La DIS-COLL si riduce del 3 per cento ogni mese a decorrere dal primo giorno del quarto mese di fruizione. 6. La DIS-COLL è corrisposta mensilmente per un numero di mesi pari alla metà dei mesi di contribuzione accreditati nel periodo che va dal primo gennaio dell’anno solare precedente l’evento di cessazione del lavoro al predetto evento. Ai fini della durata non sono computati i periodi contributivi che hanno già dato luogo ad erogazione della prestazione. La DIS-COLL non può in ogni caso superare la durata massima di sei mesi.",
+          "citation": {
+            "document_id": "d1a:l-2017-81",
+            "document_version": "b1e659e3416a4831dfad007f60949711bfb52360736d1421b3011c041357f692",
+            "title": "LEGGE 22 maggio 2017, n. 81 - lavoro agile",
+            "section": "Art. 26",
+            "page": 14,
+            "char_start": 72372,
+            "char_end": 72910,
+            "source_url": "https://www.gazzettaufficiale.it/eli/gu/2017/06/13/135/sg/pdf"
+          },
+          "evidence": {
+            "score": 0.026235,
+            "rank": 2,
+            "retriever_ranks": {
+              "bm25": 21,
+              "dense": 12
+            },
+            "retriever_scores": {
+              "bm25": 6.934491763916924,
+              "dense": 0.84816766
+            }
+          }
+        },
+        {
+          "passage_id": "p_a918529c068e210ace43d80ddd451d0a",
+          "text": "La medesima procedura si applica ai tirocini di formazione e di orientamento e ad ogni altro tipo di esperienza lavorativa ad essi assimilata. Le agenzie di lavoro autorizzate dal Ministero del lavoro e della previdenza sociale sono tenute a comunicare, entro il ventesimo giorno del mese successivo alla data di assunzione, al servizio competente nel cui ambito territoriale è ubicata la loro sede operativa, l’assunzione, la proroga e la cessazione dei lavoratori temporanei assunti nel mese precedente. Le pubbliche amministrazioni sono tenute a comunicare, entro il ventesimo giorno del mese successivo alla data di assunzione, di proroga, di trasformazione e di cessazione, al servizio competente nel cui ambito territoriale è ubicata la sede di lavoro, l’assunzione, la proroga, la trasformazione e la cessazione dei rapporti di lavoro relativi al mese precedente.",
+          "citation": {
+            "document_id": "d1a:l-2017-81",
+            "document_version": "b1e659e3416a4831dfad007f60949711bfb52360736d1421b3011c041357f692",
+            "title": "LEGGE 22 maggio 2017, n. 81 - lavoro agile",
+            "section": "Art. 26",
+            "page": 20,
+            "char_start": 133785,
+            "char_end": 134655,
+            "source_url": "https://www.gazzettaufficiale.it/eli/gu/2017/06/13/135/sg/pdf"
+          },
+          "evidence": {
+            "score": 0.023598,
+            "rank": 3,
+            "retriever_ranks": {
+              "bm25": 12,
+              "dense": 43
+            },
+            "retriever_scores": {
+              "bm25": 7.957307723565758,
+              "dense": 0.83904326
+            }
+          }
+        }
+      ]
+    },
+    {
+      "document_id": "d1a:dlgs-2008-81",
+      "document_version": "95db0c1d0338857bb20680c77a8e1b4d6c3df1399e6fa8a8e6dd68dd6fe105af",
+      "title": "DECRETO LEGISLATIVO 9 aprile 2008, n. 81 - sicurezza sul lavoro",
+      "access_level": "public",
+      "metadata": {
+        "office": "safety",
+        "type": "legislation",
+        "author": "Repubblica Italiana",
+        "date": "2008-04-09",
+        "project": null,
+        "source_url": "https://www.normattiva.it/esporta/attoCompleto?atto.dataPubblicazioneGazzetta=2008-04-30&atto.codiceRedazionale=008G0104"
+      },
+      "owner": "Responsabile del Servizio di Prevenzione e Protezione (RSPP)",
+      "synthetic": false,
+      "llm_generated": false,
+      "best_rank": 4,
+      "passages": [
+        {
+          "passage_id": "p_d157ee10fb1a8ee0a1a5c7d1e82554cd",
+          "text": "((\n\n1. I lavoratori autonomi sono puniti:\n\na) con l'arresto fino a tre mesi o con l'ammenda da 400 a 1.600 euro per la violazione dell'articolo 100, comma 3;\n\nb) con l'arresto fino a un mese o con l'ammenda da 300 a 800 euro per la violazione dell'articolo 94;\n\nc) con l'arresto fino a un mese o con l'ammenda da 200 a 600 euro per la violazione degli articoli 124, 138, commi 3 e 4, e 152, comma 2.\n\n))\n\nTitolo V SEGNALETICA DI SALUTE E SICUREZZA SUL LAVORO Capo I Disposizioni generali",
+          "citation": {
+            "document_id": "d1a:dlgs-2008-81",
+            "document_version": "95db0c1d0338857bb20680c77a8e1b4d6c3df1399e6fa8a8e6dd68dd6fe105af",
+            "title": "DECRETO LEGISLATIVO 9 aprile 2008, n. 81 - sicurezza sul lavoro",
+            "section": "Art. 160 - (( (Sanzioni per i lavoratori autonomi) ))",
+            "page": null,
+            "char_start": 389963,
+            "char_end": 390450,
+            "source_url": "https://www.normattiva.it/esporta/attoCompleto?atto.dataPubblicazioneGazzetta=2008-04-30&atto.codiceRedazionale=008G0104"
+          },
+          "evidence": {
+            "score": 0.022686,
+            "rank": 4,
+            "retriever_ranks": {
+              "bm25": 23,
+              "dense": 34
+            },
+            "retriever_scores": {
+              "bm25": 6.774358464277719,
+              "dense": 0.84005535
+            }
+          }
+        }
+      ]
+    },
+    {
+      "document_id": "d1a:dlgs-2001-151",
+      "document_version": "93acd3b99e943abd9044af116f31d02d9eae699fa3644f46b81b13f985d481e3",
+      "title": "DECRETO LEGISLATIVO 26 marzo 2001, n. 151 - maternita e paternita",
+      "access_level": "public",
+      "metadata": {
+        "office": "hr",
+        "type": "legislation",
+        "author": "Repubblica Italiana",
+        "date": "2001-03-26",
+        "project": null,
+        "source_url": "https://www.normattiva.it/esporta/attoCompleto?atto.dataPubblicazioneGazzetta=2001-04-26&atto.codiceRedazionale=001G0200"
+      },
+      "owner": "Responsabile Ufficio Personale",
+      "synthetic": false,
+      "llm_generated": false,
+      "best_rank": 5,
+      "passages": [
+        {
+          "passage_id": "p_ce7fea6d2626a5a517f9593631a80623",
+          "text": "4. Per retribuzione media globale giornaliera si intende l'importo che si ottiene dividendo per trenta l'importo totale della retribuzione del mese precedente a quello nel corso del quale ha avuto inizio il congedo. Qualora le lavoratrici non abbiano svolto l'intero periodo lavorativo mensile per sospensione del rapporto di lavoro con diritto alla conservazione del posto per interruzione del rapporto stesso o per recente assunzione si applica quanto previsto al comma 5, lettera c).\n\n5. Nei confronti delle operaie dei settori non agricoli, per retribuzione media globale giornaliera s'intende:\n\na) nei casi in cui, o per contratto di lavoro o per la effettuazione di ore di lavoro straordinario, l'orario medio effettivamente praticato superi le otto ore giornaliere, l'importo che si ottiene dividendo l'ammontare complessivo degli emolumenti percepiti nel periodo di paga preso in considerazione per il numero dei giorni lavorati o comunque retribuiti;",
+          "citation": {
+            "document_id": "d1a:dlgs-2001-151",
+            "document_version": "93acd3b99e943abd9044af116f31d02d9eae699fa3644f46b81b13f985d481e3",
+            "title": "DECRETO LEGISLATIVO 26 marzo 2001, n. 151 - maternita e paternita",
+            "section": "Art. 23 - Calcolo dell'indennità ( legge 30 dicembre 1971, n. 1204, art. 16 )",
+            "page": null,
+            "char_start": 29089,
+            "char_end": 30048,
+            "source_url": "https://www.normattiva.it/esporta/attoCompleto?atto.dataPubblicazioneGazzetta=2001-04-26&atto.codiceRedazionale=001G0200"
+          },
+          "evidence": {
+            "score": 0.022612,
+            "rank": 5,
+            "retriever_ranks": {
+              "bm25": 36,
+              "dense": 22
+            },
+            "retriever_scores": {
+              "bm25": 6.195817337796302,
+              "dense": 0.8413222
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "insufficient_evidence": false,
+  "summary": {
+    "method": "extractive",
+    "generated": false,
+    "sentences": [
+      {
+        "text": "Ciascun dipendente può svolgere la prestazione in modalità agile per un massimo di 10 giornate al mese, non cumulabili tra mesi diversi.",
+        "passage_id": "p_945255ff94506d6ca9cecacb26e2003b"
+      },
+      {
+        "text": "È garantito il diritto alla disconnessione dalle 19:00 alle 8:00 del giorno successivo, oltre che nei giorni festivi e nel fine settimana; in tale fascia il dipendente non è tenuto a rispondere a telefonate, email o messaggi.",
+        "passage_id": "p_945255ff94506d6ca9cecacb26e2003b"
+      },
+      {
+        "text": "La DIS-COLL si riduce del 3 per cento ogni mese a decorrere dal primo giorno del quarto mese di fruizione.",
+        "passage_id": "p_a905e820bb7678b72aceeb55c4a75519"
+      }
+    ]
+  },
+  "versions": {
+    "pipeline_version": "0.1.0",
+    "chunker_version": "chunker-1",
+    "embedding_model": "intfloat/multilingual-e5-small",
+    "reranker_model": null,
+    "index_snapshot_id": "idx-d90ca31ee5aee092"
+  }
+}

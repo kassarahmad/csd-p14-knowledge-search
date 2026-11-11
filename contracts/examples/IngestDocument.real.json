@@ -1,0 +1,22 @@
+{
+  "source_id": "d1b",
+  "external_id": "faq-lavoro-agile",
+  "title": "FAQ interne sul lavoro agile",
+  "file": {
+    "filename": "faq-lavoro-agile.txt",
+    "media_type": "text/plain",
+    "content_base64": "RE9DVU1FTlRPIFNJTlRFVElDTyAtIEVudGUgRGVtbyDDqCB1bidvcmdhbml6emF6aW9uZSBmaXR0aXppYSAocHJvZ2V0dG8gdW5pdmVyc2l0YXJpbyBQMTQpLg0KDQoNCkZBUSBpbnRlcm5lIHN1bCBsYXZvcm8gYWdpbGUNCg0KUG9zc28gbGF2b3JhcmUgaW4gbW9kYWxpdMOgIGFnaWxlIGRhIHVuYSBjYXNhIGFsIG1hcmU/DQpTw6wsIHNlIGlsIGx1b2dvIMOoIGlkb25lbyBzb3R0byBpbCBwcm9maWxvIGRlbGxhIHNpY3VyZXp6YSBlIGRlbGxhIHJpc2VydmF0ZXp6YSBlIHNpIHRyb3ZhIGluIEl0YWxpYS4gSWwgcmVnb2xhbWVudG8gaW50ZXJubyBub24gY29uc2VudGUgZGkgbGF2b3JhcmUgaW4gbW9kYWxpdMOgIGFnaWxlIGRhbGwnZXN0ZXJvLg0KDQpQb3NzbyBjYW1iaWFyZSBnaW9ybmF0YSBkaSBsYXZvcm8gYWdpbGUgYWxsJ3VsdGltbyBtb21lbnRvPw0KTGUgZ2lvcm5hdGUgdmFubm8gcGlhbmlmaWNhdGUgY29uIHVuYSBzZXR0aW1hbmEgZGkgYW50aWNpcG8uIEV2ZW50dWFsaSB2YXJpYXppb25pIHVyZ2VudGkgdmFubm8gY29uY29yZGF0ZSBjb24gaWwgZGlyaWdlbnRlIGUgYWdnaW9ybmF0ZSBuZWwgcG9ydGFsZSBkZWwgcGVyc29uYWxlLg0KDQpEdXJhbnRlIGlsIGxhdm9ybyBhZ2lsZSBobyBkaXJpdHRvIGFpIGJ1b25pIHBhc3RvPw0KTm8uIFNlY29uZG8gbCdhY2NvcmRvIGludGVncmF0aXZvIHZpZ2VudGUgZGkgRW50ZSBEZW1vLCBpbCBidW9ubyBwYXN0byBub24gc3BldHRhIG5lbGxlIGdpb3JuYXRlIGRpIGxhdm9ybyBhZ2lsZS4NCg0KU29ubyBhc3NpY3VyYXRvIHNlIG1pIGZhY2NpbyBtYWxlIGR1cmFudGUgaWwgbGF2b3JvIGFnaWxlPw0KU8OsLiBJbCBsYXZvcmF0b3JlIGluIG1vZGFsaXTDoCBhZ2lsZSBoYSBkaXJpdHRvIGFsbGEgdHV0ZWxhIGNvbnRybyBnbGkgaW5mb3J0dW5pIHN1bCBsYXZvcm8gZSBsZSBtYWxhdHRpZSBwcm9mZXNzaW9uYWxpLCBhbmNoZSBwZXIgZ2xpIGluZm9ydHVuaSBuZWwgdHJhZ2l0dG8gdHJhIGwnYWJpdGF6aW9uZSBlIGlsIGx1b2dvIHByZXNjZWx0byBwZXIgbGF2b3JhcmUsIG5laSBsaW1pdGkgcHJldmlzdGkgZGFsbGEgbGVnZ2UgODEvMjAxNy4gTCdpbmZvcnR1bmlvIHZhIHNlZ25hbGF0byBjb24gbGEgcHJvY2VkdXJhIGludGVybmEuDQoNClBvc3NvIHVzYXJlIGlsIG1pbyBjb21wdXRlciBwZXJzb25hbGU/DQpOby4gVmEgdXNhdG8gaWwgcG9ydGF0aWxlIGZvcm5pdG8gZGFsbCdFbnRlLiBEYWwgZGlzcG9zaXRpdm8gcGVyc29uYWxlIMOoIGNvbnNlbnRpdG8gc29sbyBsJ2FjY2Vzc28gYWxsYSB3ZWJtYWlsIGNvbiBhdXRlbnRpY2F6aW9uZSBhIGR1ZSBmYXR0b3JpLg0KDQpEZXZvIHJpc3BvbmRlcmUgYWwgdGVsZWZvbm8gbGEgc2VyYT8NCk5vLiBEYWxsZSAxOTowMCBhbGxlIDg6MDAgdmFsZSBpbCBkaXJpdHRvIGFsbGEgZGlzY29ubmVzc2lvbmUuDQo="
+  },
+  "metadata": {
+    "office": "hr",
+    "type": "faq",
+    "author": "Ente Demo (synthetic)",
+    "date": "2026-01-08",
+    "source_url": "data/d1b_source/19-faq-lavoro-agile.md"
+  },
+  "access_level": "internal",
+  "owner": "Responsabile Ufficio Personale",
+  "source_piece": "P14",
+  "synthetic": true,
+  "llm_generated": true
+}

@@ -1,0 +1,21 @@
+%% Search (retrieval/service.py). ACL filter applied INSIDE both retrievers.
+sequenceDiagram
+    actor C as Consumer (user, P24, P12)
+    participant API as P14 API
+    participant S as SearchService
+    participant B as BM25Retriever (FTS5)
+    participant D as DenseRetriever (Qdrant)
+    participant DB as SQLite
+
+    C->>API: POST /v1/search {query, top_k} + X-API-Key
+    API->>API: authenticate to Principal (401 if unknown)
+    API->>S: search(request, principal, request_id)
+    S->>B: retrieve(query, principal, 50) with SQL ACL clause
+    S->>D: retrieve(query, principal, 50) with Qdrant ACL filter
+    S->>S: rank: B0, S1, or S2 = RRF(bm25, dense)
+    S->>S: insufficient_evidence = no hits or top score below calibrated threshold
+    S->>DB: hydrate passages + documents (indexed=1, ACL re-checked)
+    S->>S: citations, evidence {score, rank, retriever_ranks}, extractive summary
+    S->>DB: query_log (pseudonymised principal, versions, results)
+    S->>DB: shadow_log (if a shadow system is configured)
+    API-->>C: 200 SearchResponse {results, insufficient_evidence, summary, versions}
