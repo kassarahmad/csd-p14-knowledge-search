@@ -15,3 +15,6 @@ qdrant_storage/
 .DS_Store
 *.egg-info/
 config/local_*.json
+
+dist/
+Claude outputs/
