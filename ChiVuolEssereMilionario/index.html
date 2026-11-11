@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Chi vuol essere milionario? — Quiz</title>
+<style>
+:root{color-scheme:dark;font-family:Segoe UI,Arial,sans-serif;background:#080c21;color:#f6f5ff}*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 30% 0%,#29205a,transparent 65%),#080c21}main{max-width:1150px;margin:auto;padding:48px 24px}header{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-bottom:44px}.eyebrow{color:#d4b879;letter-spacing:.23em;font-size:12px;text-transform:uppercase}h1{font-size:clamp(28px,4vw,48px);line-height:1.1;margin:12px 0}header p{color:#a8abc5}button{font:inherit;cursor:pointer;transition:background .2s,transform .2s}button:focus-visible{outline:3px solid #ffcc72;outline-offset:4px}button:disabled{cursor:default;opacity:.55}.layout{display:grid;grid-template-columns:1fr 230px;gap:28px}.panel,aside{border:1px solid #35365b;border-radius:22px;background:#10152bd9;padding:28px}.meta{display:flex;justify-content:space-between;color:#bcb9d5;font-size:14px}h2{min-height:100px;font-size:clamp(23px,3vw,32px);line-height:1.4;margin:38px 0}.answers{display:grid;grid-template-columns:1fr 1fr;gap:14px}.answer{border:1px solid #565581;border-radius:12px;background:#191e3b;color:white;padding:21px 18px;text-align:left;min-height:76px}.answer:hover:not(:disabled){background:#30305d;transform:translateY(-2px)}.letter{color:#f1bc63;font-weight:bold;margin-right:14px}.answer.correct{background:#115b4a;border-color:#54dcb0;opacity:1}.answer.wrong{background:#6b273b;border-color:#f485a0;opacity:1}#message{min-height:54px;margin:24px 0 10px;line-height:1.6;color:#f4d799}.actions{display:flex;gap:12px;flex-wrap:wrap}.secondary,#next{border-radius:10px;padding:12px 18px;border:1px solid #525273;background:transparent;color:#eee}#next{background:#e6b962;color:#18142a;border-color:#e6b962;font-weight:600}[hidden]{display:none!important}aside h3{margin-top:0;color:#d6c1f6;font-size:14px;letter-spacing:.12em;text-transform:uppercase}ol{list-style:none;padding:0;margin:0;display:flex;flex-direction:column-reverse;gap:4px}li{padding:7px 11px;border-radius:7px;display:flex;justify-content:space-between;font-size:14px;color:#b1b2c9}li.safe{color:#f4d395}li.active{background:#e6b962;color:#171327;font-weight:bold}footer{font-size:12px;line-height:1.7;color:#8c90ae;margin-top:24px}@media(max-width:760px){main{padding:24px 16px}.layout{grid-template-columns:1fr}.answers{grid-template-columns:1fr}.panel{padding:22px}aside{display:none}header{margin-bottom:24px}h2{margin:26px 0}}
+</style></head><body><main><header><div><div class="eyebrow">Il quiz · Prima edizione</div><h1>Chi vuol essere<br>milionario?</h1><p>15 domande. Quattro possibilità. Una sola risposta.</p></div></header><div class="layout"><section class="panel" aria-label="Partita"><div class="meta"><span id="progress"></span><span id="earned"></span></div><h2 id="question"></h2><div class="answers" id="answers"></div><p id="message" role="status" aria-live="polite"></p><div class="actions"><button id="next" hidden>Prossima domanda →</button><button id="retire" class="secondary">Mi ritiro</button><button id="restart" class="secondary">Nuova partita</button></div></section><aside><h3>La scalata</h3><ol id="ladder"></ol></aside></div><footer>Progetto dimostrativo indipendente, non affiliato al programma televisivo. Premi virtuali, nessuna vincita in denaro.<br>Traguardi garantiti: 1.000 € e 32.000 €. Una risposta errata riporta all’ultimo traguardo raggiunto.</footer></main><script src="game.js"></script><script>
+'use strict';
+const {Game,questions,prizes}=Quiz;
+const euro=n=>new Intl.NumberFormat('it-IT',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(n);
+let game,locked;
+const el=id=>document.getElementById(id);
+function render(){
+ const q=questions[Math.min(game.index,14)];
+ el('progress').textContent=`Domanda ${Math.min(game.index+1,15)} / 15`;
+ el('earned').textContent=`Premio: ${euro(game.winnings)}`;
+ el('question').textContent=q.text;
+ el('answers').replaceChildren();
+ q.answers.forEach((text,i)=>{const b=document.createElement('button');b.className='answer';const label=document.createElement('span');label.className='letter';label.textContent='ABCD'[i]+':';b.append(label,document.createTextNode(text));b.onclick=()=>answer(i);el('answers').append(b)});
+ el('ladder').replaceChildren();
+ prizes.forEach((p,i)=>{const li=document.createElement('li');li.className=(i===game.index?'active ':'')+([4,9,14].includes(i)?'safe':'');const n=document.createElement('span');n.textContent=String(i+1).padStart(2,'0');li.append(n,document.createTextNode(euro(p)));el('ladder').append(li)});
+ el('next').hidden=true;el('retire').disabled=false;el('message').textContent='Scegli la tua risposta.';
+}
+function answer(choice){
+ if(locked||game.status!=='playing')return;
+ const correct=questions[game.index].correct;locked=true;game.answer(choice);
+ [...el('answers').children].forEach((b,i)=>{b.disabled=true;if(i===correct)b.classList.add('correct');else if(i===choice)b.classList.add('wrong')});
+ el('earned').textContent=`Premio: ${euro(game.winnings)}`;
+ if(game.status==='won'){el('message').textContent='Hai vinto un milione! Tutte le 15 risposte sono esatte.';el('retire').disabled=true;}
+ else if(game.status==='lost'){el('message').textContent=`Sbagliato. La risposta era: ${questions[game.index].answers[correct]}. Porti a casa ${euro(game.winnings)}.`;el('retire').disabled=true;}
+ else{el('message').textContent=`Esatto! Hai raggiunto ${euro(game.winnings)}.`;el('next').hidden=false;}
+}
+el('next').onclick=()=>{if(game.status!=='playing')return;locked=false;render()};
+el('retire').onclick=()=>{game.retire();locked=true;el('next').hidden=true;el('retire').disabled=true;[...el('answers').children].forEach(b=>b.disabled=true);el('message').textContent=`Ti ritiri con ${euro(game.winnings)}. Ben giocato!`};
+el('restart').onclick=()=>{game=new Game();locked=false;render()};
+el('restart').click();
+</script></body></html>
